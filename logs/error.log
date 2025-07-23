@@ -1,0 +1,102 @@
+2025-07-23T01:43:34.852Z [ERROR]: Error in navigating to the URL
+2025-07-23T01:43:34.922Z [ERROR]: Error in navigating to the URL
+2025-07-23T01:44:03.916Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:44:03.920Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:44:03.925Z [ERROR]: Error in clicking on the button: locator.click: Target page, context or browser has been closed
+2025-07-23T01:44:03.942Z [ERROR]: Failed to verify welcome message: expect.toContainText: Target page, context or browser has been closed
+2025-07-23T01:44:04.083Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:44:04.085Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:44:04.088Z [ERROR]: Error in clicking on the button: locator.click: Target page, context or browser has been closed
+2025-07-23T01:44:04.098Z [ERROR]: Failed to verify username error message: expect.toContainText: Target page, context or browser has been closed
+2025-07-23T01:44:10.402Z [ERROR]: Error in navigating to the URL
+2025-07-23T01:44:10.405Z [ERROR]: Error in navigating to the URL
+2025-07-23T01:44:34.544Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:44:34.548Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:44:34.553Z [ERROR]: Error in clicking on the button: locator.click: Target page, context or browser has been closed
+2025-07-23T01:44:34.568Z [ERROR]: Failed to verify blanks error message: expect.toContainText: Target page, context or browser has been closed
+2025-07-23T01:44:34.591Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:44:34.595Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:44:34.598Z [ERROR]: Error in clicking on the button: locator.click: Target page, context or browser has been closed
+2025-07-23T01:44:34.613Z [ERROR]: Failed to verify Password error message: expect.toContainText: Target page, context or browser has been closed
+2025-07-23T01:52:23.158Z [ERROR]: Error in navigating to the URL
+2025-07-23T01:52:23.549Z [ERROR]: Error in navigating to the URL
+2025-07-23T01:52:34.464Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:52:34.464Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:52:34.468Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:52:34.474Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:52:34.471Z [ERROR]: Error in clicking on the button: locator.click: Target page, context or browser has been closed
+2025-07-23T01:52:34.485Z [ERROR]: Failed to verify username error message: expect.toContainText: Target page, context or browser has been closed
+2025-07-23T01:52:34.477Z [ERROR]: Error in clicking on the button: locator.click: Target page, context or browser has been closed
+2025-07-23T01:52:34.505Z [ERROR]: Failed to verify welcome message: expect.toContainText: Target page, context or browser has been closed
+2025-07-23T01:54:27.877Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:27.959Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:31.988Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:32.131Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:39.490Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:40.294Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:46.553Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:48.320Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:55.108Z [ERROR]: Error navigating to the URL: page.goto: Could not resolve hostname
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:57.816Z [ERROR]: Error navigating to the URL: page.goto: Could not resolve hostname
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:57.936Z [ERROR]: Error navigating to the URL: page.goto: Could not resolve hostname
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:59.981Z [ERROR]: Error navigating to the URL: page.goto: Could not resolve hostname
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:56:59.817Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:56:59.845Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:58:30.939Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://your-default-url.com/
+Call log:
+[2m  - navigating to "https://your-default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:58:31.079Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://your-default-url.com/
+Call log:
+[2m  - navigating to "https://your-default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:58:35.053Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://your-default-url.com/
+Call log:
+[2m  - navigating to "https://your-default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:58:35.863Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://your-default-url.com/
+Call log:
+[2m  - navigating to "https://your-default-url.com/", waiting until "load"[22m
+

@@ -1,0 +1,414 @@
+2025-07-23T01:43:34.462Z [INFO]: Start navigating to the login page
+2025-07-23T01:43:34.521Z [INFO]: Start navigating to the login page
+2025-07-23T01:43:34.852Z [ERROR]: Error in navigating to the URL
+2025-07-23T01:43:34.854Z [INFO]: Start entering username: invalidUser
+2025-07-23T01:43:34.922Z [ERROR]: Error in navigating to the URL
+2025-07-23T01:43:34.926Z [INFO]: Start entering username: student
+2025-07-23T01:44:03.916Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:44:03.918Z [INFO]: Start entering password
+2025-07-23T01:44:03.920Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:44:03.921Z [INFO]: Start clicking the login button
+2025-07-23T01:44:03.925Z [ERROR]: Error in clicking on the button: locator.click: Target page, context or browser has been closed
+2025-07-23T01:44:03.926Z [INFO]: Start verifying welcome message
+2025-07-23T01:44:03.942Z [ERROR]: Failed to verify welcome message: expect.toContainText: Target page, context or browser has been closed
+2025-07-23T01:44:04.083Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:44:04.083Z [INFO]: Start entering password
+2025-07-23T01:44:04.085Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:44:04.086Z [INFO]: Start clicking the login button
+2025-07-23T01:44:04.088Z [ERROR]: Error in clicking on the button: locator.click: Target page, context or browser has been closed
+2025-07-23T01:44:04.089Z [INFO]: Start verifying userName error message
+2025-07-23T01:44:04.098Z [ERROR]: Failed to verify username error message: expect.toContainText: Target page, context or browser has been closed
+2025-07-23T01:44:09.939Z [INFO]: Start navigating to the login page
+2025-07-23T01:44:10.143Z [INFO]: Start navigating to the login page
+2025-07-23T01:44:10.402Z [ERROR]: Error in navigating to the URL
+2025-07-23T01:44:10.405Z [ERROR]: Error in navigating to the URL
+2025-07-23T01:44:10.414Z [INFO]: Start entering username: 
+2025-07-23T01:44:10.404Z [INFO]: Start entering username: student
+2025-07-23T01:44:34.544Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:44:34.545Z [INFO]: Start entering password
+2025-07-23T01:44:34.548Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:44:34.548Z [INFO]: Start clicking the login button
+2025-07-23T01:44:34.553Z [ERROR]: Error in clicking on the button: locator.click: Target page, context or browser has been closed
+2025-07-23T01:44:34.553Z [INFO]: Start verifying Blank error message
+2025-07-23T01:44:34.568Z [ERROR]: Failed to verify blanks error message: expect.toContainText: Target page, context or browser has been closed
+2025-07-23T01:44:34.591Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:44:34.592Z [INFO]: Start entering password
+2025-07-23T01:44:34.595Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:44:34.596Z [INFO]: Start clicking the login button
+2025-07-23T01:44:34.598Z [ERROR]: Error in clicking on the button: locator.click: Target page, context or browser has been closed
+2025-07-23T01:44:34.599Z [INFO]: Start verifying Password error message
+2025-07-23T01:44:34.613Z [ERROR]: Failed to verify Password error message: expect.toContainText: Target page, context or browser has been closed
+2025-07-23T01:52:23.121Z [INFO]: Start navigating to the login page
+2025-07-23T01:52:23.158Z [ERROR]: Error in navigating to the URL
+2025-07-23T01:52:23.160Z [INFO]: Start entering username: invalidUser
+2025-07-23T01:52:23.512Z [INFO]: Start navigating to the login page
+2025-07-23T01:52:23.549Z [ERROR]: Error in navigating to the URL
+2025-07-23T01:52:23.551Z [INFO]: Start entering username: student
+2025-07-23T01:52:34.464Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:52:34.464Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:52:34.465Z [INFO]: Start entering password
+2025-07-23T01:52:34.467Z [INFO]: Start entering password
+2025-07-23T01:52:34.468Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:52:34.468Z [INFO]: Start clicking the login button
+2025-07-23T01:52:34.471Z [ERROR]: Error in clicking on the button: locator.click: Target page, context or browser has been closed
+2025-07-23T01:52:34.471Z [INFO]: Start verifying userName error message
+2025-07-23T01:52:34.485Z [ERROR]: Failed to verify username error message: expect.toContainText: Target page, context or browser has been closed
+2025-07-23T01:52:34.474Z [ERROR]: Error in entering the text into the texfield
+2025-07-23T01:52:34.474Z [INFO]: Start clicking the login button
+2025-07-23T01:52:34.477Z [ERROR]: Error in clicking on the button: locator.click: Target page, context or browser has been closed
+2025-07-23T01:52:34.481Z [INFO]: Start verifying welcome message
+2025-07-23T01:52:34.505Z [ERROR]: Failed to verify welcome message: expect.toContainText: Target page, context or browser has been closed
+2025-07-23T01:54:26.761Z [INFO]: Start navigating to the login page
+2025-07-23T01:54:26.797Z [INFO]: Start navigating to the login page
+2025-07-23T01:54:27.877Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:27.959Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:31.454Z [INFO]: Start navigating to the login page
+2025-07-23T01:54:31.988Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:31.991Z [INFO]: Start navigating to the login page
+2025-07-23T01:54:32.131Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:38.644Z [INFO]: Start navigating to the login page
+2025-07-23T01:54:39.051Z [INFO]: Start navigating to the login page
+2025-07-23T01:54:39.490Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:40.294Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:45.962Z [INFO]: Start navigating to the login page
+2025-07-23T01:54:46.553Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:47.929Z [INFO]: Start navigating to the login page
+2025-07-23T01:54:48.320Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:55.047Z [INFO]: Start navigating to the login page
+2025-07-23T01:54:55.108Z [ERROR]: Error navigating to the URL: page.goto: Could not resolve hostname
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:57.724Z [INFO]: Start navigating to the login page
+2025-07-23T01:54:57.816Z [ERROR]: Error navigating to the URL: page.goto: Could not resolve hostname
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:57.893Z [INFO]: Start navigating to the login page
+2025-07-23T01:54:57.936Z [ERROR]: Error navigating to the URL: page.goto: Could not resolve hostname
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:54:59.925Z [INFO]: Start navigating to the login page
+2025-07-23T01:54:59.981Z [ERROR]: Error navigating to the URL: page.goto: Could not resolve hostname
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:56:59.108Z [INFO]: Start navigating to the login page
+2025-07-23T01:56:59.321Z [INFO]: Start navigating to the login page
+2025-07-23T01:56:59.817Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:56:59.845Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://default-url.com/
+Call log:
+[2m  - navigating to "https://default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:58:30.394Z [INFO]: Start navigating to the login page
+2025-07-23T01:58:30.879Z [INFO]: Start navigating to the login page
+2025-07-23T01:58:30.939Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://your-default-url.com/
+Call log:
+[2m  - navigating to "https://your-default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:58:31.079Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://your-default-url.com/
+Call log:
+[2m  - navigating to "https://your-default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:58:34.620Z [INFO]: Start navigating to the login page
+2025-07-23T01:58:35.053Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://your-default-url.com/
+Call log:
+[2m  - navigating to "https://your-default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:58:35.074Z [INFO]: Start navigating to the login page
+2025-07-23T01:58:35.863Z [ERROR]: Error navigating to the URL: page.goto: net::ERR_NAME_NOT_RESOLVED at https://your-default-url.com/
+Call log:
+[2m  - navigating to "https://your-default-url.com/", waiting until "load"[22m
+
+2025-07-23T01:59:48.912Z [INFO]: Start navigating to the login page
+2025-07-23T01:59:49.350Z [INFO]: Start navigating to the login page
+2025-07-23T01:59:51.726Z [INFO]: Successfully navigated to the login page.
+2025-07-23T01:59:51.728Z [INFO]: Start entering username: invalidUser
+2025-07-23T01:59:51.882Z [INFO]: Successfully entered username: invalidUser
+2025-07-23T01:59:51.883Z [INFO]: Start entering password
+2025-07-23T01:59:51.962Z [INFO]: Successfully navigated to the login page.
+2025-07-23T01:59:51.964Z [INFO]: Start entering username: student
+2025-07-23T01:59:52.007Z [INFO]: Successfully entered password
+2025-07-23T01:59:52.010Z [INFO]: Start clicking the login button
+2025-07-23T01:59:52.129Z [INFO]: Successfully clicked the login button.
+2025-07-23T01:59:52.129Z [INFO]: Start verifying username error message
+2025-07-23T01:59:52.168Z [INFO]: Username error message verified successfully.
+2025-07-23T01:59:52.171Z [INFO]: Negative login test with blank username credentials passed.
+2025-07-23T01:59:52.232Z [INFO]: Successfully entered username: student
+2025-07-23T01:59:52.233Z [INFO]: Start entering password
+2025-07-23T01:59:52.426Z [INFO]: Successfully entered password
+2025-07-23T01:59:52.427Z [INFO]: Start clicking the login button
+2025-07-23T01:59:53.104Z [INFO]: Start navigating to the login page
+2025-07-23T01:59:53.163Z [INFO]: Successfully clicked the login button.
+2025-07-23T01:59:53.164Z [INFO]: Start verifying welcome message
+2025-07-23T01:59:53.290Z [INFO]: Welcome message verified successfully.
+2025-07-23T01:59:53.290Z [INFO]: Negative login test with valid username and password credentials passed.
+2025-07-23T01:59:53.731Z [INFO]: Start navigating to the login page
+2025-07-23T01:59:55.314Z [INFO]: Successfully navigated to the login page.
+2025-07-23T01:59:55.315Z [INFO]: Start entering username: student
+2025-07-23T01:59:55.359Z [INFO]: Successfully entered username: student
+2025-07-23T01:59:55.359Z [INFO]: Start entering password
+2025-07-23T01:59:55.410Z [INFO]: Successfully entered password
+2025-07-23T01:59:55.410Z [INFO]: Start clicking the login button
+2025-07-23T01:59:55.476Z [INFO]: Successfully clicked the login button.
+2025-07-23T01:59:55.476Z [INFO]: Start verifying password error message
+2025-07-23T01:59:55.486Z [INFO]: Password error message verified successfully.
+2025-07-23T01:59:55.486Z [INFO]: Negative login test with blank password credentials passed.
+2025-07-23T01:59:56.209Z [INFO]: Successfully navigated to the login page.
+2025-07-23T01:59:56.210Z [INFO]: Start entering username: 
+2025-07-23T01:59:56.331Z [INFO]: Successfully entered username: 
+2025-07-23T01:59:56.331Z [INFO]: Start entering password
+2025-07-23T01:59:56.431Z [INFO]: Successfully entered password
+2025-07-23T01:59:56.431Z [INFO]: Start clicking the login button
+2025-07-23T01:59:56.549Z [INFO]: Successfully clicked the login button.
+2025-07-23T01:59:56.549Z [INFO]: Start verifying blank error message
+2025-07-23T01:59:56.626Z [INFO]: Blank error message verified successfully.
+2025-07-23T01:59:56.626Z [INFO]: Negative login test with blank credentials passed.
+2025-07-23T02:00:00.211Z [INFO]: Start navigating to the login page
+2025-07-23T02:00:01.361Z [INFO]: Start navigating to the login page
+2025-07-23T02:00:02.864Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:00:02.866Z [INFO]: Start entering username: student
+2025-07-23T02:00:02.961Z [INFO]: Successfully entered username: student
+2025-07-23T02:00:02.962Z [INFO]: Start entering password
+2025-07-23T02:00:03.127Z [INFO]: Successfully entered password
+2025-07-23T02:00:03.128Z [INFO]: Start clicking the login button
+2025-07-23T02:00:04.031Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:00:04.062Z [INFO]: Start verifying welcome message
+2025-07-23T02:00:04.181Z [INFO]: Welcome message verified successfully.
+2025-07-23T02:00:04.181Z [INFO]: Negative login test with valid username and password credentials passed.
+2025-07-23T02:00:04.435Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:00:04.437Z [INFO]: Start entering username: invalidUser
+2025-07-23T02:00:04.577Z [INFO]: Successfully entered username: invalidUser
+2025-07-23T02:00:04.577Z [INFO]: Start entering password
+2025-07-23T02:00:04.631Z [INFO]: Successfully entered password
+2025-07-23T02:00:04.632Z [INFO]: Start clicking the login button
+2025-07-23T02:00:05.005Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:00:05.006Z [INFO]: Start verifying username error message
+2025-07-23T02:00:05.033Z [INFO]: Username error message verified successfully.
+2025-07-23T02:00:05.035Z [INFO]: Negative login test with blank username credentials passed.
+2025-07-23T02:00:06.666Z [INFO]: Start navigating to the login page
+2025-07-23T02:00:06.728Z [INFO]: Start navigating to the login page
+2025-07-23T02:00:08.948Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:00:08.948Z [INFO]: Start entering username: 
+2025-07-23T02:00:09.076Z [INFO]: Successfully entered username: 
+2025-07-23T02:00:09.076Z [INFO]: Start entering password
+2025-07-23T02:00:09.215Z [INFO]: Successfully entered password
+2025-07-23T02:00:09.215Z [INFO]: Start clicking the login button
+2025-07-23T02:00:09.368Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:00:09.368Z [INFO]: Start entering username: student
+2025-07-23T02:00:09.461Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:00:09.462Z [INFO]: Start verifying blank error message
+2025-07-23T02:00:09.473Z [INFO]: Blank error message verified successfully.
+2025-07-23T02:00:09.474Z [INFO]: Negative login test with blank credentials passed.
+2025-07-23T02:00:09.501Z [INFO]: Successfully entered username: student
+2025-07-23T02:00:09.502Z [INFO]: Start entering password
+2025-07-23T02:00:09.566Z [INFO]: Successfully entered password
+2025-07-23T02:00:09.569Z [INFO]: Start clicking the login button
+2025-07-23T02:00:09.659Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:00:09.660Z [INFO]: Start verifying password error message
+2025-07-23T02:00:09.672Z [INFO]: Password error message verified successfully.
+2025-07-23T02:00:09.672Z [INFO]: Negative login test with blank password credentials passed.
+2025-07-23T02:00:20.534Z [INFO]: Start navigating to the login page
+2025-07-23T02:00:22.926Z [INFO]: Start navigating to the login page
+2025-07-23T02:00:23.193Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:00:23.195Z [INFO]: Start entering username: student
+2025-07-23T02:00:23.267Z [INFO]: Successfully entered username: student
+2025-07-23T02:00:23.267Z [INFO]: Start entering password
+2025-07-23T02:00:23.290Z [INFO]: Successfully entered password
+2025-07-23T02:00:23.291Z [INFO]: Start clicking the login button
+2025-07-23T02:00:24.456Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:00:24.456Z [INFO]: Start verifying welcome message
+2025-07-23T02:00:24.560Z [INFO]: Welcome message verified successfully.
+2025-07-23T02:00:24.561Z [INFO]: Negative login test with valid username and password credentials passed.
+2025-07-23T02:00:25.312Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:00:25.313Z [INFO]: Start entering username: invalidUser
+2025-07-23T02:00:25.397Z [INFO]: Start navigating to the login page
+2025-07-23T02:00:25.496Z [INFO]: Successfully entered username: invalidUser
+2025-07-23T02:00:25.496Z [INFO]: Start entering password
+2025-07-23T02:00:25.618Z [INFO]: Successfully entered password
+2025-07-23T02:00:25.619Z [INFO]: Start clicking the login button
+2025-07-23T02:00:26.014Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:00:26.014Z [INFO]: Start verifying username error message
+2025-07-23T02:00:26.045Z [INFO]: Username error message verified successfully.
+2025-07-23T02:00:26.045Z [INFO]: Negative login test with blank username credentials passed.
+2025-07-23T02:00:26.799Z [INFO]: Start navigating to the login page
+2025-07-23T02:00:28.005Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:00:28.005Z [INFO]: Start entering username: student
+2025-07-23T02:00:28.085Z [INFO]: Successfully entered username: student
+2025-07-23T02:00:28.085Z [INFO]: Start entering password
+2025-07-23T02:00:28.173Z [INFO]: Successfully entered password
+2025-07-23T02:00:28.173Z [INFO]: Start clicking the login button
+2025-07-23T02:00:28.469Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:00:28.469Z [INFO]: Start verifying password error message
+2025-07-23T02:00:28.478Z [INFO]: Password error message verified successfully.
+2025-07-23T02:00:28.479Z [INFO]: Negative login test with blank password credentials passed.
+2025-07-23T02:00:29.489Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:00:29.489Z [INFO]: Start entering username: 
+2025-07-23T02:00:29.545Z [INFO]: Successfully entered username: 
+2025-07-23T02:00:29.545Z [INFO]: Start entering password
+2025-07-23T02:00:29.723Z [INFO]: Successfully entered password
+2025-07-23T02:00:29.723Z [INFO]: Start clicking the login button
+2025-07-23T02:00:30.044Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:00:30.044Z [INFO]: Start verifying blank error message
+2025-07-23T02:00:30.072Z [INFO]: Blank error message verified successfully.
+2025-07-23T02:00:30.072Z [INFO]: Negative login test with blank credentials passed.
+2025-07-23T02:01:23.379Z [INFO]: Start navigating to the login page
+2025-07-23T02:01:23.580Z [INFO]: Start navigating to the login page
+2025-07-23T02:01:25.813Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:01:25.815Z [INFO]: Start entering username: student
+2025-07-23T02:01:26.000Z [INFO]: Successfully entered username: student
+2025-07-23T02:01:26.001Z [INFO]: Start entering password
+2025-07-23T02:01:26.097Z [INFO]: Successfully entered password
+2025-07-23T02:01:26.098Z [INFO]: Start clicking the login button
+2025-07-23T02:01:26.329Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:01:26.331Z [INFO]: Start entering username: invalidUser
+2025-07-23T02:01:26.423Z [INFO]: Successfully entered username: invalidUser
+2025-07-23T02:01:26.424Z [INFO]: Start entering password
+2025-07-23T02:01:26.453Z [INFO]: Successfully entered password
+2025-07-23T02:01:26.454Z [INFO]: Start clicking the login button
+2025-07-23T02:01:26.558Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:01:26.559Z [INFO]: Start verifying username error message
+2025-07-23T02:01:26.594Z [INFO]: Username error message verified successfully.
+2025-07-23T02:01:26.595Z [INFO]: Negative login test with blank username credentials passed.
+2025-07-23T02:01:26.789Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:01:26.790Z [INFO]: Start verifying welcome message
+2025-07-23T02:01:26.845Z [INFO]: Welcome message verified successfully.
+2025-07-23T02:01:26.846Z [INFO]: Negative login test with valid username and password credentials passed.
+2025-07-23T02:01:27.316Z [INFO]: Start navigating to the login page
+2025-07-23T02:01:27.328Z [INFO]: Start navigating to the login page
+2025-07-23T02:01:29.694Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:01:29.694Z [INFO]: Start entering username: student
+2025-07-23T02:01:29.734Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:01:29.761Z [INFO]: Start entering username: 
+2025-07-23T02:01:29.831Z [INFO]: Successfully entered username: student
+2025-07-23T02:01:29.831Z [INFO]: Start entering password
+2025-07-23T02:01:29.914Z [INFO]: Successfully entered password
+2025-07-23T02:01:29.914Z [INFO]: Start clicking the login button
+2025-07-23T02:01:30.095Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:01:30.096Z [INFO]: Start verifying password error message
+2025-07-23T02:01:30.116Z [INFO]: Password error message verified successfully.
+2025-07-23T02:01:30.118Z [INFO]: Negative login test with blank password credentials passed.
+2025-07-23T02:01:30.212Z [INFO]: Successfully entered username: 
+2025-07-23T02:01:30.212Z [INFO]: Start entering password
+2025-07-23T02:01:30.252Z [INFO]: Successfully entered password
+2025-07-23T02:01:30.253Z [INFO]: Start clicking the login button
+2025-07-23T02:01:30.398Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:01:30.398Z [INFO]: Start verifying blank error message
+2025-07-23T02:01:30.427Z [INFO]: Blank error message verified successfully.
+2025-07-23T02:01:30.427Z [INFO]: Negative login test with blank credentials passed.
+2025-07-23T02:01:34.460Z [INFO]: Start navigating to the login page
+2025-07-23T02:01:34.790Z [INFO]: Start navigating to the login page
+2025-07-23T02:01:37.946Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:01:37.949Z [INFO]: Start entering username: invalidUser
+2025-07-23T02:01:38.060Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:01:38.062Z [INFO]: Start entering username: student
+2025-07-23T02:01:38.197Z [INFO]: Successfully entered username: invalidUser
+2025-07-23T02:01:38.198Z [INFO]: Start entering password
+2025-07-23T02:01:38.233Z [INFO]: Successfully entered password
+2025-07-23T02:01:38.234Z [INFO]: Start clicking the login button
+2025-07-23T02:01:38.395Z [INFO]: Successfully entered username: student
+2025-07-23T02:01:38.395Z [INFO]: Start entering password
+2025-07-23T02:01:38.424Z [INFO]: Successfully entered password
+2025-07-23T02:01:38.431Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:01:38.424Z [INFO]: Start clicking the login button
+2025-07-23T02:01:38.432Z [INFO]: Start verifying username error message
+2025-07-23T02:01:38.465Z [INFO]: Username error message verified successfully.
+2025-07-23T02:01:38.466Z [INFO]: Negative login test with blank username credentials passed.
+2025-07-23T02:01:39.632Z [INFO]: Start navigating to the login page
+2025-07-23T02:01:39.903Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:01:39.903Z [INFO]: Start verifying welcome message
+2025-07-23T02:01:39.990Z [INFO]: Welcome message verified successfully.
+2025-07-23T02:01:39.990Z [INFO]: Negative login test with valid username and password credentials passed.
+2025-07-23T02:01:41.363Z [INFO]: Start navigating to the login page
+2025-07-23T02:01:42.058Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:01:42.059Z [INFO]: Start entering username: student
+2025-07-23T02:01:42.132Z [INFO]: Successfully entered username: student
+2025-07-23T02:01:42.133Z [INFO]: Start entering password
+2025-07-23T02:01:42.178Z [INFO]: Successfully entered password
+2025-07-23T02:01:42.178Z [INFO]: Start clicking the login button
+2025-07-23T02:01:42.265Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:01:42.265Z [INFO]: Start verifying password error message
+2025-07-23T02:01:42.277Z [INFO]: Password error message verified successfully.
+2025-07-23T02:01:42.277Z [INFO]: Negative login test with blank password credentials passed.
+2025-07-23T02:01:43.904Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:01:43.905Z [INFO]: Start entering username: 
+2025-07-23T02:01:43.989Z [INFO]: Successfully entered username: 
+2025-07-23T02:01:43.989Z [INFO]: Start entering password
+2025-07-23T02:01:44.022Z [INFO]: Successfully entered password
+2025-07-23T02:01:44.022Z [INFO]: Start clicking the login button
+2025-07-23T02:01:44.092Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:01:44.092Z [INFO]: Start verifying blank error message
+2025-07-23T02:01:44.109Z [INFO]: Blank error message verified successfully.
+2025-07-23T02:01:44.109Z [INFO]: Negative login test with blank credentials passed.
+2025-07-23T02:01:52.845Z [INFO]: Start navigating to the login page
+2025-07-23T02:01:55.470Z [INFO]: Start navigating to the login page
+2025-07-23T02:01:55.800Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:01:55.802Z [INFO]: Start entering username: student
+2025-07-23T02:01:55.888Z [INFO]: Successfully entered username: student
+2025-07-23T02:01:55.889Z [INFO]: Start entering password
+2025-07-23T02:01:55.995Z [INFO]: Successfully entered password
+2025-07-23T02:01:55.996Z [INFO]: Start clicking the login button
+2025-07-23T02:01:57.386Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:01:57.388Z [INFO]: Start verifying welcome message
+2025-07-23T02:01:57.489Z [INFO]: Welcome message verified successfully.
+2025-07-23T02:01:57.490Z [INFO]: Negative login test with valid username and password credentials passed.
+2025-07-23T02:01:57.729Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:01:57.731Z [INFO]: Start entering username: invalidUser
+2025-07-23T02:01:57.819Z [INFO]: Successfully entered username: invalidUser
+2025-07-23T02:01:57.820Z [INFO]: Start entering password
+2025-07-23T02:01:57.948Z [INFO]: Successfully entered password
+2025-07-23T02:01:57.949Z [INFO]: Start clicking the login button
+2025-07-23T02:01:58.018Z [INFO]: Start navigating to the login page
+2025-07-23T02:01:58.355Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:01:58.355Z [INFO]: Start verifying username error message
+2025-07-23T02:01:58.376Z [INFO]: Username error message verified successfully.
+2025-07-23T02:01:58.377Z [INFO]: Negative login test with blank username credentials passed.
+2025-07-23T02:01:58.880Z [INFO]: Start navigating to the login page
+2025-07-23T02:02:00.260Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:02:00.260Z [INFO]: Start entering username: student
+2025-07-23T02:02:00.326Z [INFO]: Successfully entered username: student
+2025-07-23T02:02:00.326Z [INFO]: Start entering password
+2025-07-23T02:02:00.443Z [INFO]: Successfully entered password
+2025-07-23T02:02:00.443Z [INFO]: Start clicking the login button
+2025-07-23T02:02:00.876Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:02:00.876Z [INFO]: Start verifying password error message
+2025-07-23T02:02:00.895Z [INFO]: Password error message verified successfully.
+2025-07-23T02:02:00.895Z [INFO]: Negative login test with blank password credentials passed.
+2025-07-23T02:02:01.122Z [INFO]: Successfully navigated to the login page.
+2025-07-23T02:02:01.122Z [INFO]: Start entering username: 
+2025-07-23T02:02:01.204Z [INFO]: Successfully entered username: 
+2025-07-23T02:02:01.204Z [INFO]: Start entering password
+2025-07-23T02:02:01.337Z [INFO]: Successfully entered password
+2025-07-23T02:02:01.337Z [INFO]: Start clicking the login button
+2025-07-23T02:02:01.679Z [INFO]: Successfully clicked the login button.
+2025-07-23T02:02:01.679Z [INFO]: Start verifying blank error message
+2025-07-23T02:02:01.699Z [INFO]: Blank error message verified successfully.
+2025-07-23T02:02:01.699Z [INFO]: Negative login test with blank credentials passed.
