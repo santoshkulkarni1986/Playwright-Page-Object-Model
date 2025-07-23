@@ -40,7 +40,7 @@ test.describe('PracticeTestAutomation Login Tests using POM', () => {
     logger.info('Negative login test with invalid username passed.');
   });
 
-  test.only('Login fails with invalid password FromExcel', async () => {
+  test('Login fails with invalid password FromExcel', async () => {
     const user = getFirstUserFromExcel('./src/data/users.xlsx');
     await loginPage.enterUserName(user.userNameFromExcel);
     await loginPage.enterPassword(user.passWordFromExcel);
