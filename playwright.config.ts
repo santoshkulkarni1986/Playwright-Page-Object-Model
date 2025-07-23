@@ -13,7 +13,7 @@ export default defineConfig({
 
   reporter: [
     ['list'],
-    ['html', { open: 'never', outputFolder: 'playwright-report', title: 'Practice Test Automation Report' }],
+    ['html', { open: 'never', outputFolder: 'playwright-report', title: 'Santosh Kulkarni POC' }],
     ['junit', { outputFile: 'test-results/results.xml' }],
   ],
 
