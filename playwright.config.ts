@@ -18,7 +18,7 @@ export default defineConfig({
   ],
 
   use: {
-    baseURL: process.env.URL || 'https://default-url.com', // ✅ Set from .env
+    baseURL: process.env.URL || 'https://default-url.com', 
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'on',
