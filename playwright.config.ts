@@ -1,8 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
 import path from 'path';
-import { getEnv } from './src/Utility/env';
+import { getEnv } from './src/helper/env/env'; // ✅ Update the path if needed
 
-getEnv();
+getEnv(); // ✅ Load .env.<ENV> file before config is exported
 
 export default defineConfig({
   testDir: './src/tests',
@@ -18,7 +18,7 @@ export default defineConfig({
   ],
 
   use: {
-    baseURL: process.env.URL || 'https://your-default-url.com',
+    baseURL: process.env.URL || 'https://default-url.com', // ✅ Set from .env
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'on',

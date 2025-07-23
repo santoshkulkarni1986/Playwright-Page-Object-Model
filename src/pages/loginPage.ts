@@ -51,7 +51,7 @@ export class LoginPage {
       logger.info(`Start ${action}`);
       const passwordInput = this.page.getByLabel('Password').describe('Password Textfield Locator');
       await passwordInput.fill(password);
-      logger.info('Successfully entered password');
+      logger.info(`Successfully entered password: ${password}`);
     } catch (error) {
       logger.error(`Error entering password: ${(error as Error).message}`);
       throw error;

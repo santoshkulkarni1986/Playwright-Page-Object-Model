@@ -4,7 +4,7 @@
 import { createLogger, format, transports } from 'winston';
 
 const logger = createLogger({
-  level: 'info', // Default log level for general messages
+  level: 'info', 
   format: format.combine(
     format.timestamp(),
     format.printf(({ level, message, timestamp }) => {
@@ -12,16 +12,13 @@ const logger = createLogger({
     })
   ),
   transports: [
-    // Console transport for all levels
     new transports.Console(),
 
-    // File transport for all logs (info, error, etc.)
     new transports.File({ filename: 'logs/app.log' }),
 
-    // Separate file transport specifically for errors
     new transports.File({
       filename: 'logs/error.log',
-      level: 'error', // This transport will only log errors
+      level: 'error', 
     }),
   ],
 });
