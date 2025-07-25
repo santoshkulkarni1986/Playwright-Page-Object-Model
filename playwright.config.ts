@@ -19,8 +19,8 @@ export default defineConfig({
 
   use: {
     baseURL: process.env.URL || 'https://default-url.com', 
-    trace: 'on-first-retry',
-    screenshot: 'only-on-failure',
+    trace: 'on',
+    screenshot: 'on',
     video: 'on',
   },
 

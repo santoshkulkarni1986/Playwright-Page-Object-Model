@@ -1,14 +1,16 @@
 /**
  * Author: Santosh Kulkarni
  */
-import { expect, Page } from "@playwright/test";
+import { expect, Locator, Page } from "@playwright/test";
 import logger from "../Utility/logger";
 
 export class WelcomePage {
 private page: Page;
+readonly succesMessage:Locator;
 
     constructor(page: Page) {
     this.page = page;
+    this.succesMessage= this.page.getByRole('heading', { level: 1 }).describe('WelCome Message Locator');
 }
 
 /**
@@ -18,7 +20,7 @@ private page: Page;
     const action = "verifying welcome message";
     try {
     logger.info(`Start ${action}`);
-    const message = this.page.getByRole('heading', { level: 1 }).describe('WelCome Message Locator');
+    const message = this.succesMessage;
     await expect(message).toContainText("Logged In Successfully");
     logger.info("Welcome message verified successfully.");
     } catch (error) {

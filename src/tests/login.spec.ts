@@ -46,7 +46,7 @@ test.describe('PracticeTestAutomation Login Tests using POM', () => {
     await loginPage.enterPassword(user.passWordFromExcel);
     await loginPage.clickLoginButton();
     await loginPage.verifyPasswordErrorMessage();
-    logger.info('✅ Negative login test with invalid password passed.');
+    logger.info('Negative login test with invalid password passed.');
   });
 
   test('Login fails with blank username and password', async () => {

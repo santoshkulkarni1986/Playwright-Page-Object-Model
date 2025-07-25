@@ -1,13 +1,22 @@
 /*** Author: Santosh Kulkarni ***/
-import { expect, Page } from '@playwright/test';
+import { expect, Page,Locator  } from '@playwright/test';
 import logger from '../Utility/logger';
 
 export class LoginPage {
   private page: Page;
+  readonly usernameInput: Locator;
+  readonly passwordInput: Locator;
+  readonly submitButon: Locator;
+  readonly errorMessage: Locator;
 
   constructor(page: Page) {
     this.page = page;
+    this.usernameInput = page.getByLabel('Username').describe('Username Textfield Locator');
+    this.passwordInput = page.getByLabel('Password').describe('Password Textfield Locator');
+    this.submitButon = page.getByRole('button', { name: 'Submit' }).describe('Submit Button Locator');
+    this.errorMessage = page.locator('#error');
   }
+
 
   /**
    * Navigate to the login page.
@@ -33,8 +42,7 @@ export class LoginPage {
     const action = `entering username: ${username}`;
     try {
       logger.info(`Start ${action}`);
-      const userNameInput = this.page.getByLabel('Username').describe('Username Textfield Locator');
-      await userNameInput.fill(username);
+      await this.usernameInput.fill(username);
       logger.info(`Successfully entered username: ${username}`);
     } catch (error) {
       logger.error(`Error entering username: ${(error as Error).message}`);
@@ -49,8 +57,7 @@ export class LoginPage {
     const action = 'entering password';
     try {
       logger.info(`Start ${action}`);
-      const passwordInput = this.page.getByLabel('Password').describe('Password Textfield Locator');
-      await passwordInput.fill(password);
+      await this.passwordInput.fill(password);
       logger.info(`Successfully entered password: ${password}`);
     } catch (error) {
       logger.error(`Error entering password: ${(error as Error).message}`);
@@ -65,8 +72,7 @@ export class LoginPage {
     const action = 'clicking the login button';
     try {
       logger.info(`Start ${action}`);
-      const submitButton = this.page.getByRole('button', { name: 'Submit' }).describe('Submit Button Locator');
-      await submitButton.click();
+      await this.submitButon.click();
       logger.info('Successfully clicked the login button.');
     } catch (error) {
       logger.error(`Error clicking the login button: ${(error as Error).message}`);
@@ -81,7 +87,7 @@ export class LoginPage {
     const action = 'verifying username error message';
     try {
       logger.info(`Start ${action}`);
-      const message = this.page.locator('#error');
+      const message = this.errorMessage;
       await expect(message).toContainText('Your username is invalid!');
       logger.info('Username error message verified successfully.');
     } catch (error) {
@@ -97,7 +103,7 @@ export class LoginPage {
     const action = 'verifying password error message';
     try {
       logger.info(`Start ${action}`);
-      const message = this.page.locator('#error');
+      const message = this.errorMessage;
       await expect(message).toContainText('Your password is invalid!');
       logger.info('Password error message verified successfully.');
     } catch (error) {
@@ -113,7 +119,7 @@ export class LoginPage {
     const action = 'verifying blank error message';
     try {
       logger.info(`Start ${action}`);
-      const message = this.page.locator('#error');
+      const message = this.errorMessage;
       await expect(message).toContainText('Your username is invalid!');
       logger.info('Blank error message verified successfully.');
     } catch (error) {
