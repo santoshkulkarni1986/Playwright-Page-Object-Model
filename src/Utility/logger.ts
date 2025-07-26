@@ -14,10 +14,10 @@ const logger = createLogger({
   transports: [
     new transports.Console(),
 
-    new transports.File({ filename: 'playwright-report/logs/app.log' }),
+    new transports.File({ filename: 'test-results/logs/app.log' }),
 
     new transports.File({
-      filename: 'playwright-report/logs/error.log',
+      filename: 'test-results/logs/error.log',
       level: 'error', 
     }),
   ],
@@ -25,22 +25,22 @@ const logger = createLogger({
 
 // Log uncaught exceptions and unhandled rejections
 logger.exceptions.handle(
-  new transports.File({ filename: 'playwright-report/logs/exceptions.log' })
+  new transports.File({ filename: 'test-results/logs/exceptions.log' })
 );
 
 logger.rejections.handle(
-  new transports.File({ filename: 'playwright-report/logs/rejections.log' })
+  new transports.File({ filename: 'test-results/logs/rejections.log' })
 );
 
 logger.rejections.handle(
-  new transports.File({ filename: 'playwright-report/logs/rejections.log' })
+  new transports.File({ filename: 'test-results/logs/rejections.log' })
 );
 
 export function options(scenarioName: string) {
   return {
     transports: [
       new transports.File({
-        filename: `playwright-report/logs/${scenarioName}/log.log`,
+        filename: `test-results/logs/${scenarioName}/log.log`,
         level: 'info',
       }),
     ],
