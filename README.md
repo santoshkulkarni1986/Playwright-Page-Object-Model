@@ -1,4 +1,4 @@
-It is automation framework with page object model and POM design patterns.
+It is automation framework with page object model and data driven concepts.
 Action Paradigms concepts been implemented.
 
 1. Clone the url
