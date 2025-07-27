@@ -7,6 +7,8 @@ declare global {
       BASEURL: string;
       USERNAME:string;
       PASSWORD:string;
+      INVALID_USERNAME: string;
+      INVALID_PASSWORD: string;
     }
   }
 }

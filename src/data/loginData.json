@@ -1,0 +1,19 @@
+{
+"valid": {
+    "usernameFromJSON": "student",
+    "passwordFromJSON": "Password123"
+},
+"invalidUserName": {
+    "usernameFromJSON": "test123",
+    "passwordFromJSON": "Password123"
+},
+"invalidPassword": {
+    "usernameFromJSON": "student",
+    "passwordFromJSON": "student123"
+},
+
+"invalidDetails": {
+    "usernameFromJSON": "student11",
+    "passwordFromJSON": "student123"
+}
+}

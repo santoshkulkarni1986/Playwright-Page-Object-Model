@@ -1,12 +1,17 @@
 import fs from 'fs';
 import path from 'path';
-import { parse } from 'papaparse';
-/**
- * 
- * @param filePath 
- * @returns first row
- */
-export function getFirstUserFromCSV(filePath: string) {
-    const file = fs.readFileSync(path.resolve(filePath), 'utf8');
-    const parsed = parse(file, { header: true }).data as any[];
-    return parsed[0]};
+import { parse } from 'csv-parse/sync';
+
+export interface LoginUser {
+    usernameFromCSV: string;
+    passwordFromCSV: string;
+}
+
+export function getLoginData(filePath: string): LoginUser[] {
+    const file = fs.readFileSync(path.resolve(filePath));
+    return parse(file, {
+    columns: true,
+    skip_empty_lines: true,
+    trim: true,
+    });
+}

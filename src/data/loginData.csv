@@ -1,2 +1,6 @@
-usernameFromCSV,passwordFromCSV
-invalidUser,Password123
+usernameFromCSV,passwordFromCSV,
+student,Password123,
+wrongUser,Password123,
+student,student,
+student1,password,
+
