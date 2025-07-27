@@ -1,7 +1,7 @@
 /**
  * Author: Santosh Kulkarni
  */
-import { test, expect, Page } from '@playwright/test';
+import { test } from '@playwright/test';
 import { LoginPage } from '../pages/loginPage';
 import { WelcomePage } from '../pages/WelcomePage';
 import logger from '../Utility/logger';
@@ -29,11 +29,18 @@ test.describe('Login Test Scenarios Using POM', () => {
   }) => {
     const welcomePage = new WelcomePage(page);
     await loginPage.enterUserName(userName);
+    await loginPage.verifyUserNameTextField(userName);
     await loginPage.enterPassword(passWord);
+    await loginPage.verifyPasswordTextField(passWord);
+    await loginPage.verifyLoginButtonEnabled();
     await loginPage.clickLoginButton();
     await welcomePage.verifyWelcomeMessage();
     logger.info(
       'Positive login test with valid username and password passed From Environment Variables.',
+    );
+    await welcomePage.clickLogoutButton();
+    logger.info(
+      'Logout successful after valid login from Environment Variables.',
     );
   });
 
@@ -51,6 +58,8 @@ test.describe('Login Test Scenarios Using POM', () => {
     logger.info(
       'Positive login test with valid username and password passed from CSV.',
     );
+    await welcomePage.clickLogoutButton();
+    logger.info('Logout successful after valid login from CSV.');
   });
 
   test('Login successfully with valid credentials from JSON', async ({
@@ -144,7 +153,9 @@ test.describe('Login Test Scenarios Using POM', () => {
     await loginPage.enterPassword(user.passWordFromExcel);
     await loginPage.clickLoginButton();
     await loginPage.verifyUserNameErrorMessage();
-    logger.info('Negative login test with invalid username passed using Excel.');
+    logger.info(
+      'Negative login test with invalid username passed using Excel.',
+    );
   });
 
   test('Login fails with invalid password FromExcel', async () => {
@@ -154,7 +165,9 @@ test.describe('Login Test Scenarios Using POM', () => {
     await loginPage.enterPassword(user.passWordFromExcel);
     await loginPage.clickLoginButton();
     await loginPage.verifyPasswordErrorMessage();
-    logger.info('Negative login test with invalid password passed using Excel.');
+    logger.info(
+      'Negative login test with invalid password passed using Excel.',
+    );
   });
 
   test('Login fails with invalid username and invalid password from Environment Variables', async () => {

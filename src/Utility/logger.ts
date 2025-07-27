@@ -1,15 +1,15 @@
-/***Author 
+/***Author
  * Santosh Kulkarni
  */
 import { createLogger, format, transports } from 'winston';
 
 const logger = createLogger({
-  level: 'info', 
+  level: 'info',
   format: format.combine(
     format.timestamp(),
     format.printf(({ level, message, timestamp }) => {
       return `${timestamp} [${level.toUpperCase()}]: ${message}`;
-    })
+    }),
   ),
   transports: [
     new transports.Console(),
@@ -18,22 +18,22 @@ const logger = createLogger({
 
     new transports.File({
       filename: 'test-results/logs/error.log',
-      level: 'error', 
+      level: 'error',
     }),
   ],
 });
 
 // Log uncaught exceptions and unhandled rejections
 logger.exceptions.handle(
-  new transports.File({ filename: 'test-results/logs/exceptions.log' })
+  new transports.File({ filename: 'test-results/logs/exceptions.log' }),
 );
 
 logger.rejections.handle(
-  new transports.File({ filename: 'test-results/logs/rejections.log' })
+  new transports.File({ filename: 'test-results/logs/rejections.log' }),
 );
 
 logger.rejections.handle(
-  new transports.File({ filename: 'test-results/logs/rejections.log' })
+  new transports.File({ filename: 'test-results/logs/rejections.log' }),
 );
 
 export function options(scenarioName: string) {

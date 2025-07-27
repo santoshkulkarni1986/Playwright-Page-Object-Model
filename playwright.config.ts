@@ -13,14 +13,14 @@ export default defineConfig({
 
   reporter: [
     ['list'],
-    ['html', { open: 'never', outputFolder: 'playwright-report', title: 'Santosh Kulkarni POC' }],
+      ['html', { open: 'never', outputFolder: 'playwright-report', title: 'Santosh Kulkarni POC' }],
     ['junit', { outputFile: 'test-results/results.xml' }],
   ],
 
   use: {
     baseURL: process.env.URL || 'https://default-url.com', 
     trace: 'on',
-    screenshot: 'on',
+    screenshot: 'only-on-failure',
     video: 'on',
   },
 

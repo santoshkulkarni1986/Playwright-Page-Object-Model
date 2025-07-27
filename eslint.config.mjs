@@ -1,15 +1,18 @@
 import { defineFlatConfig } from "eslint-define-config";
+import parser from "@typescript-eslint/parser";
+import typescriptEslint from "@typescript-eslint/eslint-plugin";
+import prettierPlugin from "eslint-plugin-prettier";
 
 export default defineFlatConfig([
   {
     languageOptions: {
-      parser: "@typescript-eslint/parser",
+      parser, // 👈 imported object, not string
       ecmaVersion: 2021,
       sourceType: "module",
     },
     plugins: {
-      "@typescript-eslint": require("@typescript-eslint/eslint-plugin"),
-      prettier: require("eslint-plugin-prettier"),
+      "@typescript-eslint": typescriptEslint,
+      prettier: prettierPlugin,
     },
     rules: {
       "prettier/prettier": "error",

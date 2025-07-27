@@ -26,7 +26,7 @@ export function getAllUsersFromExcel(filePath: string): ExcelUser[] {
 export function getUserByIndex(
     filePath: string,
     index: number,
-    ): ExcelUser | undefined {
+): ExcelUser | undefined {
     const users = getAllUsersFromExcel(filePath);
     return users[index];
 }

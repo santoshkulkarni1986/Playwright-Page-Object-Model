@@ -10,8 +10,12 @@ export function getEnv() {
     process.exit(1);
   }
 
-  const envPath = path.resolve(process.cwd(), 'src/helper/env', `.env.${environment}`);
-  const result = dotenv.config({ path: envPath, override: true }); 
+  const envPath = path.resolve(
+    process.cwd(),
+    'src/helper/env',
+    `.env.${environment}`,
+  );
+  const result = dotenv.config({ path: envPath, override: true });
 
   if (result.error) {
     console.error(`Failed to load ${envPath}`, result.error);

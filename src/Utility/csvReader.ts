@@ -13,5 +13,5 @@ export function getLoginData(filePath: string): LoginUser[] {
     columns: true,
     skip_empty_lines: true,
     trim: true,
-    });
+    }) as LoginUser[];
 }

@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env ENV=test npx playwright test"
+    "pretest": "eslint --fix ./src --ext .ts,.tsx,.js",
+    "test": "cross-env ENV=test npx playwright test",
+    "posttest": "echo 'Test run complete! Post-processing done.'"
   },
   "keywords": [],
   "author": "Santosh Kulkarni",
@@ -19,6 +21,7 @@
     "eslint": "^9.16.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-define-config": "^2.1.0",
+    "eslint-plugin-playwright": "^2.2.0",
     "eslint-plugin-prettier": "^5.2.1",
     "playwright": "^1.54.1",
     "prettier": "^3.4.2",
