@@ -93,12 +93,13 @@ export class LoginPage {
   /**
    * Verifies the username error message.
    */
-  public async verifyUserNameErrorMessage(): Promise<void> {
+  public async verifyUserNameErrorMessage(): Promise<boolean> {
     const action = 'verifying username error message';
     try {
       logger.info(`Start ${action}`);
       const message = this.errorMessage;
       await expect(message).toContainText('Your username is invalid!');
+      return true;
       logger.info('Username error message verified successfully.');
     } catch (error) {
       logger.error(

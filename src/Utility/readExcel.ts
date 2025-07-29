@@ -2,8 +2,8 @@ import * as xlsx from 'xlsx';
 import path from 'path';
 
 export interface ExcelUser {
-    userNameFromExcel: string;
-    passWordFromExcel: string;
+  userNameFromExcel: string;
+  passWordFromExcel: string;
 }
 
 /**
@@ -12,10 +12,10 @@ export interface ExcelUser {
  * @returns Array of user objects
  */
 export function getAllUsersFromExcel(filePath: string): ExcelUser[] {
-    const workbook = xlsx.readFile(path.resolve(filePath));
-    const sheet = workbook.Sheets[workbook.SheetNames[0]];
-    const data = xlsx.utils.sheet_to_json<ExcelUser>(sheet, { defval: '' });
-    return data;
+  const workbook = xlsx.readFile(path.resolve(filePath));
+  const sheet = workbook.Sheets[workbook.SheetNames[0]];
+  const data = xlsx.utils.sheet_to_json<ExcelUser>(sheet, { defval: '' });
+  return data;
 }
 
 /**
@@ -24,9 +24,9 @@ export function getAllUsersFromExcel(filePath: string): ExcelUser[] {
  * @param index Row index (starting from 0)
  */
 export function getUserByIndex(
-    filePath: string,
-    index: number,
+  filePath: string,
+  index: number,
 ): ExcelUser | undefined {
-    const users = getAllUsersFromExcel(filePath);
-    return users[index];
+  const users = getAllUsersFromExcel(filePath);
+  return users[index];
 }

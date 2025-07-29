@@ -8,6 +8,9 @@ import logger from '../Utility/logger';
 import { getLoginData } from '../Utility/csvReader';
 import * as loginData from '../data/loginData.json';
 import { getUserByIndex } from '../Utility/readExcel';
+import { getEnv } from '../helper/env/env';
+
+getEnv();
 
 test.describe('Login Test Scenarios Using POM', () => {
   test.beforeAll(async () => {
@@ -51,14 +54,18 @@ test.describe('Login Test Scenarios Using POM', () => {
     const loginPage = new LoginPage(page);
     const welcomePage = new WelcomePage(page);
     await loginPage.enterUserName(user.usernameFromCSV);
+    await loginPage.verifyUserNameTextField(user.usernameFromCSV);
     await loginPage.enterPassword(user.passwordFromCSV);
+    await loginPage.verifyPasswordTextField(user.passwordFromCSV);
+    await loginPage;
     await loginPage.clickLoginButton();
     await welcomePage.verifyWelcomeMessage();
+    await welcomePage.clickLogoutButton();
+    logger.info('successfully logged out after the application.');
     logger.info(`Valid login passed for user: ${user.usernameFromCSV}`);
     logger.info(
       'Positive login test with valid username and password passed from CSV.',
     );
-    await welcomePage.clickLogoutButton();
     logger.info('Logout successful after valid login from CSV.');
   });
 
@@ -67,9 +74,14 @@ test.describe('Login Test Scenarios Using POM', () => {
   }) => {
     const welcomePage = new WelcomePage(page);
     await loginPage.enterUserName(loginData.valid.usernameFromJSON);
+    await loginPage.verifyUserNameTextField(loginData.valid.usernameFromJSON);
     await loginPage.enterPassword(loginData.valid.passwordFromJSON);
+    await loginPage.verifyPasswordTextField(loginData.valid.passwordFromJSON);
+    await loginPage.verifyLoginButtonEnabled();
     await loginPage.clickLoginButton();
     await welcomePage.verifyWelcomeMessage();
+    await welcomePage.clickLogoutButton();
+    logger.info('Logout successful after valid the application.');
     logger.info(
       'Positive login test with valid username and password passed from JSON.',
     );
@@ -80,9 +92,14 @@ test.describe('Login Test Scenarios Using POM', () => {
     const user = getUserByIndex('./src/data/users.xlsx', 0); // 0 = first row
     if (!user) throw new Error('User not found at index 0');
     await loginPage.enterUserName(user.userNameFromExcel);
+    await loginPage.verifyUserNameTextField(user.userNameFromExcel);
     await loginPage.enterPassword(user.passWordFromExcel);
+    await loginPage.verifyPasswordTextField(user.passWordFromExcel);
+    await loginPage.verifyLoginButtonEnabled();
     await loginPage.clickLoginButton();
     await welcomePage.verifyWelcomeMessage();
+    await welcomePage.clickLogoutButton();
+    logger.info('Logout successful after valid login from Excel.');
     logger.info(
       'Positive login test with valid credentials passed from Excel.',
     );
@@ -90,7 +107,10 @@ test.describe('Login Test Scenarios Using POM', () => {
 
   test('Login fails with invalid username from Environment Vairables', async () => {
     await loginPage.enterUserName(invalidUserName);
+    await loginPage.verifyUserNameTextField(invalidUserName);
     await loginPage.enterPassword(passWord);
+    await loginPage.verifyPasswordTextField(passWord);
+    await loginPage.verifyLoginButtonEnabled();
     await loginPage.clickLoginButton();
     await loginPage.verifyUserNameErrorMessage();
     logger.info(
@@ -100,7 +120,10 @@ test.describe('Login Test Scenarios Using POM', () => {
 
   test('Login fails with invalid password from Environment Vairables', async () => {
     await loginPage.enterUserName(userName);
+    await loginPage.verifyUserNameTextField(userName);
     await loginPage.enterPassword(invalidPassword);
+    await loginPage.verifyPasswordTextField(invalidPassword);
+    await loginPage.verifyLoginButtonEnabled();
     await loginPage.clickLoginButton();
     await loginPage.verifyPasswordErrorMessage();
     logger.info(
@@ -113,7 +136,10 @@ test.describe('Login Test Scenarios Using POM', () => {
     // Second row (invalid)
     const user = users[1];
     await loginPage.enterUserName(user.usernameFromCSV);
+    await loginPage.verifyUserNameTextField(user.usernameFromCSV);
     await loginPage.enterPassword(user.passwordFromCSV);
+    await loginPage.verifyPasswordTextField(user.passwordFromCSV);
+    await loginPage.verifyLoginButtonEnabled();
     await loginPage.clickLoginButton();
     await loginPage.verifyUserNameErrorMessage();
     logger.info('Negative login test with invalid username passed from CSV.');
@@ -124,7 +150,10 @@ test.describe('Login Test Scenarios Using POM', () => {
     // Third row (invalid)
     const user = users[2];
     await loginPage.enterUserName(user.usernameFromCSV);
+    await loginPage.verifyUserNameTextField(user.usernameFromCSV);
     await loginPage.enterPassword(user.passwordFromCSV);
+    await loginPage.verifyPasswordTextField(user.passwordFromCSV);
+    await loginPage.verifyLoginButtonEnabled();
     await loginPage.clickLoginButton();
     await loginPage.verifyPasswordErrorMessage();
     logger.info('Negative login test with invalid password passed from CSV.');
@@ -132,7 +161,14 @@ test.describe('Login Test Scenarios Using POM', () => {
 
   test('Login fails with invalid username from JSON', async () => {
     await loginPage.enterUserName(loginData.invalidUserName.usernameFromJSON);
+    await loginPage.verifyUserNameTextField(
+      loginData.invalidUserName.usernameFromJSON,
+    );
     await loginPage.enterPassword(loginData.invalidUserName.passwordFromJSON);
+    await loginPage.verifyPasswordTextField(
+      loginData.invalidUserName.passwordFromJSON,
+    );
+    await loginPage.verifyLoginButtonEnabled();
     await loginPage.clickLoginButton();
     await loginPage.verifyUserNameErrorMessage();
     logger.info('Negative login test with invalid username passed from JSON.');
@@ -140,7 +176,12 @@ test.describe('Login Test Scenarios Using POM', () => {
 
   test('Login fails with invalid password from JSON', async () => {
     await loginPage.enterUserName(loginData.valid.usernameFromJSON);
+    await loginPage.verifyUserNameTextField(loginData.valid.usernameFromJSON);
     await loginPage.enterPassword(loginData.invalidPassword.passwordFromJSON);
+    await loginPage.verifyPasswordTextField(
+      loginData.invalidPassword.passwordFromJSON,
+    );
+    await loginPage.verifyLoginButtonEnabled();
     await loginPage.clickLoginButton();
     await loginPage.verifyPasswordErrorMessage();
     logger.info('Negative login test with invalid password passed from JSON.');
@@ -150,7 +191,10 @@ test.describe('Login Test Scenarios Using POM', () => {
     const user = getUserByIndex('./src/data/users.xlsx', 2); // 0 = first row
     if (!user) throw new Error('User not found at index 0');
     await loginPage.enterUserName(user.userNameFromExcel);
+    await loginPage.verifyUserNameTextField(user.userNameFromExcel);
     await loginPage.enterPassword(user.passWordFromExcel);
+    await loginPage.verifyPasswordTextField(user.passWordFromExcel);
+    await loginPage.verifyLoginButtonEnabled();
     await loginPage.clickLoginButton();
     await loginPage.verifyUserNameErrorMessage();
     logger.info(
@@ -162,7 +206,10 @@ test.describe('Login Test Scenarios Using POM', () => {
     const user = getUserByIndex('./src/data/users.xlsx', 1); // 0 = first row
     if (!user) throw new Error('User not found at index 0');
     await loginPage.enterUserName(user.userNameFromExcel);
+    await loginPage.verifyUserNameTextField(user.userNameFromExcel);
     await loginPage.enterPassword(user.passWordFromExcel);
+    await loginPage.verifyPasswordTextField(user.passWordFromExcel);
+    await loginPage.verifyLoginButtonEnabled();
     await loginPage.clickLoginButton();
     await loginPage.verifyPasswordErrorMessage();
     logger.info(
@@ -172,7 +219,10 @@ test.describe('Login Test Scenarios Using POM', () => {
 
   test('Login fails with invalid username and invalid password from Environment Variables', async () => {
     await loginPage.enterUserName(invalidUserName);
+    await loginPage.verifyUserNameTextField(invalidUserName);
     await loginPage.enterPassword(invalidPassword);
+    await loginPage.verifyPasswordTextField(invalidPassword);
+    await loginPage.verifyLoginButtonEnabled();
     await loginPage.clickLoginButton();
     await loginPage.verifyBlankErrorMessage();
     logger.info(
@@ -184,7 +234,10 @@ test.describe('Login Test Scenarios Using POM', () => {
     const user = getUserByIndex('./src/data/users.xlsx', 2); // 0 = first row
     if (!user) throw new Error('User not found at index 0');
     await loginPage.enterUserName(user.userNameFromExcel);
+    await loginPage.verifyUserNameTextField(user.userNameFromExcel);
     await loginPage.enterPassword(user.passWordFromExcel);
+    await loginPage.verifyPasswordTextField(user.passWordFromExcel);
+    await loginPage.verifyLoginButtonEnabled();
     await loginPage.clickLoginButton();
     await loginPage.verifyBlankErrorMessage();
     logger.info(
@@ -197,7 +250,10 @@ test.describe('Login Test Scenarios Using POM', () => {
     // Third row (invalid)
     const user = users[3];
     await loginPage.enterUserName(user.usernameFromCSV);
+    await loginPage.verifyUserNameTextField(user.usernameFromCSV);
     await loginPage.enterPassword(user.passwordFromCSV);
+    await loginPage.verifyPasswordTextField(user.passwordFromCSV);
+    await loginPage.verifyLoginButtonEnabled();
     await loginPage.clickLoginButton();
     await loginPage.verifyBlankErrorMessage();
     logger.info(
@@ -207,7 +263,14 @@ test.describe('Login Test Scenarios Using POM', () => {
 
   test('Login fails with invalid username and invalid password from JSON', async () => {
     await loginPage.enterUserName(loginData.invalidDetails.usernameFromJSON);
+    await loginPage.verifyUserNameTextField(
+      loginData.invalidDetails.usernameFromJSON,
+    );
     await loginPage.enterPassword(loginData.invalidDetails.passwordFromJSON);
+    await loginPage.verifyPasswordTextField(
+      loginData.invalidDetails.passwordFromJSON,
+    );
+    await loginPage.verifyLoginButtonEnabled();
     await loginPage.clickLoginButton();
     await loginPage.verifyBlankErrorMessage();
     logger.info(

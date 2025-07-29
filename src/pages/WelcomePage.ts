@@ -20,13 +20,21 @@ export class WelcomePage {
   /**
    * Verifies the welcome message after successful login.
    */
-  public async verifyWelcomeMessage(): Promise<void> {
+  public async verifyWelcomeMessage(): Promise<boolean> {
     const action = 'verifying welcome message';
     try {
       logger.info(`Start ${action}`);
       const message = this.succesMessage;
-      await expect(message).toContainText('Logged In Successfully');
+      // await expect(message).toContainText('Logged In Successfully');
+      await expect(this.page.getByRole('strong')).toContainText(
+        'Congratulations student. You successfully logged in!',
+      );
+      await expect(this.page.getByRole('heading')).toContainText(
+        'Logged In Successfully',
+      );
+
       logger.info('Welcome message verified successfully.');
+      return true;
     } catch (error) {
       logger.error(
         `Failed to verify welcome message: ${(error as Error).message}`,

@@ -2,7 +2,6 @@ import { defineConfig, devices } from '@playwright/test';
 import path from 'path';
 import { getEnv } from './src/helper/env/env'; 
 
-getEnv(); 
 
 export default defineConfig({
   testDir: './src/tests',
