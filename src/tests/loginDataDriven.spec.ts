@@ -26,9 +26,11 @@ const results: TestResult[] = [];
 base.describe.serial('Excel-driven Login Tests', () => {
   for (const data of testDataList) {
     base(`${data.testCaseName}`, async ({ page }, testInfo) => {
-      const browserName = testInfo.project.name; // Get browser from config
-      ///const context = await browser.newContext();
-      //const page = await context.newPage();
+      /// Get browser from config/testInfo
+      const browserName = testInfo.project.name; 
+      logger.info(`Running test: ${data.testCaseName} on ${browserName}`);
+      const action = `executing test case: ${data.testCaseName}`;
+      logger.info(`Start ${action}`);
       const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
 
       const result: TestResult = {
@@ -69,8 +71,7 @@ base.describe.serial('Excel-driven Login Tests', () => {
         results.push(result);
         logger.info(`${data.testCaseName} | ${result.status}`);
         expect(result.status).toBe('Pass');
-
-        //await context.close();
+        logger.info(`End ${action}`);
       }
     });
   }
