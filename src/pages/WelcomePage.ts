@@ -24,8 +24,6 @@ export class WelcomePage {
     const action = 'verifying welcome message';
     try {
       logger.info(`Start ${action}`);
-      const message = this.succesMessage;
-      // await expect(message).toContainText('Logged In Successfully');
       await expect(this.page.getByRole('strong')).toContainText(
         'Congratulations student. You successfully logged in!',
       );

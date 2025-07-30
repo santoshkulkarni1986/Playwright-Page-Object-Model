@@ -23,16 +23,15 @@ if (!fs.existsSync(screenshotDir)) {
 const testDataList: TestData[] = readExecutableTests(inputFilePath);
 const results: TestResult[] = [];
 
-base.describe.serial('Excel-driven Login Tests', () => {
+base.describe.parallel('Excel-driven Login Tests', () => {
   for (const data of testDataList) {
     base(`${data.testCaseName}`, async ({ page }, testInfo) => {
       /// Get browser from config/testInfo
-      const browserName = testInfo.project.name; 
+      const browserName = testInfo.project.name;
       logger.info(`Running test: ${data.testCaseName} on ${browserName}`);
       const action = `executing test case: ${data.testCaseName}`;
       logger.info(`Start ${action}`);
       const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-
       const result: TestResult = {
         ...data,
         status: 'Pending',
@@ -43,12 +42,10 @@ base.describe.serial('Excel-driven Login Tests', () => {
       try {
         const loginPage = new LoginPage(page);
         const welcomePage = new WelcomePage(page);
-
         await page.goto(data.url);
         await loginPage.enterUserName(data.username);
         await loginPage.enterPassword(data.password);
         await loginPage.clickLoginButton();
-
         const isSuccess = await welcomePage.verifyWelcomeMessage();
         if (isSuccess) {
           result.status = 'Pass';
@@ -79,10 +76,8 @@ base.describe.serial('Excel-driven Login Tests', () => {
   base.afterAll(async () => {
     const dir = path.dirname(outputFilePath);
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-
     // Wait a bit to ensure all file handles are released
     await new Promise((res) => setTimeout(res, 1000));
-
     writeResultsToExcel(results, outputFilePath);
     logger.info(`Results written to: ${outputFilePath}`);
   });

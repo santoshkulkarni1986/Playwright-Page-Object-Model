@@ -8,8 +8,8 @@ export interface LoginUser {
 }
 /**
  * Gets login data
- * @param filePath 
- * @returns login data 
+ * @param filePath
+ * @returns login data
  */
 export function getLoginData(filePath: string): LoginUser[] {
   const file = fs.readFileSync(path.resolve(filePath));

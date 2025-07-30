@@ -1,12 +1,13 @@
 import * as dotenv from 'dotenv';
 import path from 'path';
+import logger from '../../Utility/logger';
 /**
  * getting environment variables
  */
 export function getEnv() {
   const environment = process.env.ENV;
   if (!environment) {
-    console.error('NO ENV PASSED!');
+    logger.info('NO ENV PASSED!');
     process.exit(1);
   }
 
@@ -18,9 +19,9 @@ export function getEnv() {
   const result = dotenv.config({ path: envPath, override: true });
 
   if (result.error) {
-    console.error(`Failed to load ${envPath}`, result.error);
+    logger.info(`Failed to load ${envPath}`, result.error);
     process.exit(1);
   }
 
-  console.log(`Loaded environment: .env.${environment}`);
+  logger.info(`Loaded environment: .env.${environment}`);
 }

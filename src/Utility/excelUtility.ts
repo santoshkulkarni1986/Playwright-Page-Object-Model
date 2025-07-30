@@ -36,8 +36,8 @@ export interface TestResult extends TestData {
 }
 /**
  * Writes results to excel
- * @param results 
- * @param filePath 
+ * @param results
+ * @param filePath
  */
 export function writeResultsToExcel(
   results: TestResult[],
