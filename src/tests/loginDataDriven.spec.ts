@@ -61,6 +61,7 @@ base.describe.parallel('Excel-driven Login Tests', () => {
             /\s+/g,
             '_',
           );
+        logger.info(error);
         const screenshotPath = path.join(screenshotDir, screenshotName);
         await page.screenshot({ path: screenshotPath, fullPage: true });
         result.screenshotPath = screenshotPath;
