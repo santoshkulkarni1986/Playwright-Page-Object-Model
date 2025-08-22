@@ -8,7 +8,7 @@
     "posttest": "Reports generated successfully!'"
   },
   "keywords": [],
-  "author": "Santosh Kulkarni",
+  "author": "Santosh Kulkarni QA Lead",
   "license": "ISC",
   "description": "Playwright Framework with Page Object Model and Word Reporter, PDF Reporter, and HTML Reporter",
   "devDependencies": {
