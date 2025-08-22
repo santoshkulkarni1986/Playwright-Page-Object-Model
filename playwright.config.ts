@@ -15,7 +15,7 @@ export default defineConfig({
     ['./dist/utility/WordReporter.js', { outputDir: 'FinalReports/reports/word' }],
     ['monocart-reporter', {  
       name: "Playwright Custom Report",
-      outputFile: './monocart-report/index.html'
+      outputFile: './FinalReports/monocart-report/index.html'
     }],
     ['./dist/utility/PdfReporter.js', { outputFile: 'FinalReports/reports/pdf/playwright-Custom-report.pdf' }],
     ['./dist/utility/pdf-reporter.js', { outputFile: 'FinalReports/reports/pdf/playwright-HTML-Convert-report.pdf' }],
