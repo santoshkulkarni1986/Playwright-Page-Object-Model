@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "pretest": "eslint --fix ./src --ext .ts,.tsx,.js && npx tsc",
+    "pretest": "node ./src/utility/setupReports.ts && npx tsc",
   "test": "cross-env ENV=test npx playwright test",
   "posttest": "echo 'Reports generated successfully!'"
   },

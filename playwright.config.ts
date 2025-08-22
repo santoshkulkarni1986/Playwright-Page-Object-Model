@@ -1,4 +1,21 @@
 import { defineConfig, devices } from '@playwright/test';
+import fs from 'fs';
+import path from 'path';
+
+// ✅ Ensure report folders exist before tests run
+const reportFolders = [
+  'FinalReports/reports/pdf',
+  'FinalReports/reports/word',
+  'FinalReports/monocart-report',
+];
+
+reportFolders.forEach(folder => {
+  const folderPath = path.resolve(folder);
+  if (!fs.existsSync(folderPath)) {
+    fs.mkdirSync(folderPath, { recursive: true });
+    console.log(`Created folder: ${folderPath}`);
+  }
+});
 
 export default defineConfig({
   testDir: './src/tests',
@@ -12,13 +29,17 @@ export default defineConfig({
     ['html', { open: 'never', outputFolder: 'playwright-report', title: 'Santosh Kulkarni POC' }],
     ['junit', { outputFile: 'test-results/results.xml' }],
     ['@estruyf/github-actions-reporter'],
-    ['./dist/utility/WordReporter.js', { outputDir: 'FinalReports/reports/word' }],
+
+    // Compiled JS reporters (dist folder)
+    ['./dist/Utility/WordReporter.js', { outputDir: 'FinalReports/reports/word' }],
+    ['./dist/Utility/PdfReporter.js', { outputFile: 'FinalReports/reports/pdf/playwright-Custom-report.pdf' }],
+    ['./dist/Utility/pdf-reporter.js', { outputFile: 'FinalReports/reports/pdf/playwright-HTML-Convert-report.pdf' }],
+
     ['monocart-reporter', {  
       name: "Playwright Custom Report",
       outputFile: './FinalReports/monocart-report/index.html'
     }],
-    ['./dist/utility/PdfReporter.js', { outputFile: 'FinalReports/reports/pdf/playwright-Custom-report.pdf' }],
-    ['./dist/utility/pdf-reporter.js', { outputFile: 'FinalReports/reports/pdf/playwright-HTML-Convert-report.pdf' }],
+
     ['json', { outputFile: 'test-results/results.json' }]
   ],
 
