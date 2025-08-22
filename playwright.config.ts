@@ -12,35 +12,35 @@ export default defineConfig({
     ['html', { open: 'never', outputFolder: 'playwright-report', title: 'Santosh Kulkarni POC' }],
     ['junit', { outputFile: 'test-results/results.xml' }],
     ['@estruyf/github-actions-reporter'],
-    ['./src/utility/WordReporter.ts', { outputDir: 'FinalReports/reports/word' }],
+    ['./dist/utility/WordReporter.js', { outputDir: 'FinalReports/reports/word' }],
     ['monocart-reporter', {  
-            name: "Playwright Custom Report",
-            outputFile: './FinalReports/monocart-report/index.html'
+      name: "Playwright Custom Report",
+      outputFile: './monocart-report/index.html'
     }],
-    ['./src/utility/PdfReporter.ts', { outputFile: 'FinalReports/reports/pdf/playwright-Custom-report.pdf' }],
-    ['./src/utility/pdf-reporter.ts', { outputFile: 'FinalReports/reports/pdf/playwright-HTML-Convert-report.pdf' }], // ✅ Use module path as string
-    ['json', { outputFile: 'test-results/results.json' }],
+    ['./dist/utility/PdfReporter.js', { outputFile: 'FinalReports/reports/pdf/playwright-Custom-report.pdf' }],
+    ['./dist/utility/pdf-reporter.js', { outputFile: 'FinalReports/reports/pdf/playwright-HTML-Convert-report.pdf' }],
+    ['json', { outputFile: 'test-results/results.json' }]
   ],
 
   use: {
     baseURL: process.env.URL || 'https://default-url.com',
     trace: 'on',
     screenshot: 'on',
-    video: 'on',
+    video: 'on'
   },
 
   projects: [
     {
       name: 'Google Chrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+      use: { ...devices['Desktop Chrome'], channel: 'chrome' }
     },
     {
       name: 'Microsoft Edge',
-      use: { ...devices['Desktop Edge'], channel: 'msedge' },
+      use: { ...devices['Desktop Edge'], channel: 'msedge' }
     },
     {
       name: 'iPhone 13',
-      use: { ...devices['iPhone 13'] },
-    },
-  ],
+      use: { ...devices['iPhone 13'] }
+    }
+  ]
 });

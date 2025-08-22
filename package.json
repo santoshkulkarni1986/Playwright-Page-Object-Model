@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "pretest": "eslint --fix ./src --ext .ts,.tsx,.js",
-  "test": "cross-env ENV=test TS_NODE_PROJECT=tsconfig.json TS_NODE_COMPILER_OPTIONS={\\\"module\\\":\\\"commonjs\\\"} playwright test",
+    "test": "cross-env ENV=test TS_NODE_PROJECT=tsconfig.json TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' npx playwright test",
     "posttest": "echo 'Reports generated successfully!'"
   },
   "keywords": [],
