@@ -1,7 +1,4 @@
 import { defineConfig, devices } from '@playwright/test';
-import WordReporter from './src/utility/WordReporter';
-import PdfReporterPlaywright from './src/utility/PdfReporter';
-import PdfReporter from './src/utility/pdf-reporter';
 
 export default defineConfig({
   testDir: './src/tests',
@@ -17,7 +14,7 @@ export default defineConfig({
     ['@estruyf/github-actions-reporter'],
     ['./src/utility/WordReporter.ts', { outputDir: 'FinalReports/reports/word' }],
     ['monocart-reporter', {  
-            name: "Playwright Data Driven Tests Report",
+            name: "Playwright Custom Report",
             outputFile: './FinalReports/monocart-report/index.html'
     }],
     ['./src/utility/PdfReporter.ts', { outputFile: 'FinalReports/reports/pdf/playwright-Custom-report.pdf' }],
