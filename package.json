@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "pretest": "node ./src/Utility/setupReports.ts && npx tsc",
+    "pretest": "ts-node ./src/Utility/setupReports.ts && npx tsc",
   "test": "cross-env ENV=test npx playwright test",
   "posttest": "echo 'Reports generated successfully!'"
   },
