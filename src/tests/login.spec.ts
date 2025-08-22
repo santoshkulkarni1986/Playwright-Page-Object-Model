@@ -30,7 +30,9 @@ test.describe('Login Test Scenarios Using POM', () => {
     });
   });
 
-  test('Login successfully with valid credentials from Environment Variables', async ({ page }) => {
+  test('Login successfully with valid credentials from Environment Variables', async ({
+    page,
+  }) => {
     const welcomePage = new WelcomePage(page);
 
     await test.step('Enter valid username', async () => {
@@ -86,7 +88,9 @@ test.describe('Login Test Scenarios Using POM', () => {
     logger.info(`Valid login passed for user: ${user.usernameFromCSV} (CSV)`);
   });
 
-  test('Login successfully with valid credentials from JSON', async ({ page }) => {
+  test('Login successfully with valid credentials from JSON', async ({
+    page,
+  }) => {
     const welcomePage = new WelcomePage(page);
 
     await test.step('Enter username from JSON', async () => {
@@ -112,7 +116,9 @@ test.describe('Login Test Scenarios Using POM', () => {
     logger.info('Valid login test passed using JSON data.');
   });
 
-  test('Login successfully with valid credentials from Excel', async ({ page }) => {
+  test('Login successfully with valid credentials from Excel', async ({
+    page,
+  }) => {
     const welcomePage = new WelcomePage(page);
     const user = getUserByIndex('./src/data/users.xlsx', 0);
     if (!user) throw new Error('User not found at index 0');

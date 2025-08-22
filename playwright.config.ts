@@ -1,4 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
+import WordReporter from './src/utility/WordReporter';
+import PdfReporterPlaywright from './src/utility/PdfReporter';
+import PdfReporter from './src/utility/pdf-reporter';
 
 export default defineConfig({
   testDir: './src/tests',

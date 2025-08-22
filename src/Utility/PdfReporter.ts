@@ -112,7 +112,7 @@ class PdfReporter implements Reporter {
     });
 
     doc.end();
-    
+
     console.log(`✅ PDF Report generated at: ${pdfPath}`);
   }
 }

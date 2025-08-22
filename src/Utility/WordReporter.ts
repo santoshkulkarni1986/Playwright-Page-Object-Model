@@ -2,10 +2,24 @@
  * Author: Santosh Kulkarni
  * Word Reporter for Playwright with full step details
  */
-import { Reporter, TestCase, TestResult, TestStep, FullConfig } from '@playwright/test/reporter';
+import {
+  Reporter,
+  TestCase,
+  TestResult,
+  TestStep,
+  FullConfig,
+} from '@playwright/test/reporter';
 import * as fs from 'fs';
 import * as path from 'path';
-import { Document, Packer, Paragraph, Table, TableRow, TableCell, HeadingLevel } from 'docx';
+import {
+  Document,
+  Packer,
+  Paragraph,
+  Table,
+  TableRow,
+  TableCell,
+  HeadingLevel,
+} from 'docx';
 
 interface WordReporterOptions {
   outputDir?: string;
@@ -21,7 +35,7 @@ interface TestResultData {
 class WordReporter implements Reporter {
   private outputDir: string;
   private baseURL: string = '';
-  private allResults: TestResultData[] = []; 
+  private allResults: TestResultData[] = [];
 
   constructor(options: WordReporterOptions = {}) {
     this.outputDir = options.outputDir || 'word-report';
@@ -52,17 +66,17 @@ class WordReporter implements Reporter {
     // Report Header
     children.push(
       new Paragraph({
-        text: "Playwright Custom Report",
+        text: 'Playwright Custom Report',
         heading: HeadingLevel.TITLE,
       }),
       new Paragraph({
         text: `Base URL: ${this.baseURL}`,
         spacing: { after: 400 },
-      })
+      }),
     );
 
     // Each test section
-    this.allResults.forEach(test => {
+    this.allResults.forEach((test) => {
       // Step rows
       const stepRows = test.steps.map(
         (step: TestStep) =>
@@ -70,20 +84,20 @@ class WordReporter implements Reporter {
             children: [
               new TableCell({ children: [new Paragraph(step.title)] }),
               new TableCell({
-                children: [new Paragraph(step.error ? "Failed" : "Passed")],
+                children: [new Paragraph(step.error ? 'Failed' : 'Passed')],
               }),
               new TableCell({
                 children: [new Paragraph(String(step.duration || 0))],
               }),
             ],
-          })
+          }),
       );
 
       // Total row
       const totalRow = new TableRow({
         children: [
-          new TableCell({ children: [new Paragraph("Total Test Duration")] }),
-          new TableCell({ children: [new Paragraph("")] }),
+          new TableCell({ children: [new Paragraph('Total Test Duration')] }),
+          new TableCell({ children: [new Paragraph('')] }),
           new TableCell({
             children: [new Paragraph(String(test.duration))],
           }),
@@ -94,9 +108,9 @@ class WordReporter implements Reporter {
         rows: [
           new TableRow({
             children: [
-              new TableCell({ children: [new Paragraph("Step")] }),
-              new TableCell({ children: [new Paragraph("Status")] }),
-              new TableCell({ children: [new Paragraph("Time Taken (ms)")] }),
+              new TableCell({ children: [new Paragraph('Step')] }),
+              new TableCell({ children: [new Paragraph('Status')] }),
+              new TableCell({ children: [new Paragraph('Time Taken (ms)')] }),
             ],
           }),
           ...stepRows,
@@ -114,7 +128,7 @@ class WordReporter implements Reporter {
           spacing: { after: 200 },
         }),
         table,
-        new Paragraph({ text: "", spacing: { after: 300 } }) 
+        new Paragraph({ text: '', spacing: { after: 300 } }),
       );
     });
 
