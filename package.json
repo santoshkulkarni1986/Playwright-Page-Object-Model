@@ -5,15 +5,17 @@
   "scripts": {
     "pretest": "eslint --fix ./src --ext .ts,.tsx,.js",
     "test": "cross-env ENV=test npx playwright test",
-    "posttest": "echo 'Test run complete! Post-processing done.'"
+    "posttest": "Reports generated successfully!'"
   },
   "keywords": [],
   "author": "Santosh Kulkarni",
   "license": "ISC",
-  "description": "",
+  "description": "Playwright Framework with Page Object Model and Word Reporter, PDF Reporter, and HTML Reporter",
   "devDependencies": {
-    "@playwright/test": "^1.54.1",
+    "@playwright/test": "^1.54.2",
+    "@types/html-pdf": "^3.0.3",
     "@types/node": "^22.10.2",
+    "@types/pdfkit": "^0.17.2",
     "@typescript-eslint/eslint-plugin": "^8.18.0",
     "@typescript-eslint/parser": "^8.18.0",
     "cross-env": "^7.0.3",
@@ -23,15 +25,24 @@
     "eslint-define-config": "^2.1.0",
     "eslint-plugin-playwright": "^2.2.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "playwright": "^1.54.1",
+    "playwright": "^1.54.2",
     "prettier": "^3.4.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2",
     "winston": "^3.17.0"
   },
   "dependencies": {
+    "@estruyf/github-actions-reporter": "^1.10.0",
+    "archiver": "^7.0.1",
     "csv-parse": "^6.1.0",
+    "docx": "^9.5.1",
+    "html-pdf": "^3.0.1",
+    "monocart-reporter": "^2.9.21",
+    "nodemailer": "^7.0.5",
     "papaparse": "^5.5.3",
+    "pdfkit": "^0.17.1",
+    "pdfkit-table": "^0.1.99",
+    "pdfmake": "^0.2.20",
     "xlsx": "^0.18.5"
   }
 }

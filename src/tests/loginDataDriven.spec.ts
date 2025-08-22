@@ -12,8 +12,8 @@ import * as path from 'path';
 import logger from '../Utility/logger';
 
 const inputFilePath = './src/data/testData.xlsx';
-const outputFilePath = './src/results/test-output.xlsx';
-const screenshotDir = './src/results/screenshots';
+const outputFilePath = './FinalReports/ExcelReports/test-output.xlsx';
+const screenshotDir = './FinalReports/ExcelReports/screenshots';
 
 // Ensure results folder exists
 if (!fs.existsSync(screenshotDir)) {

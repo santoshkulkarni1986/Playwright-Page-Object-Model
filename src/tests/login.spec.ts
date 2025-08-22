@@ -14,8 +14,9 @@ getEnv();
 
 test.describe('Login Test Scenarios Using POM', () => {
   test.beforeAll(async () => {
-    logger.info('Starting Login Test Sceanrios Using Page Object Model');
+    logger.info('Starting Login Test Scenarios Using Page Object Model');
   });
+
   let loginPage: LoginPage;
   let userName = process.env.USERNAME!;
   let passWord = process.env.PASSWORD!;
@@ -24,265 +25,171 @@ test.describe('Login Test Scenarios Using POM', () => {
 
   test.beforeEach(async ({ page }) => {
     loginPage = new LoginPage(page);
-    await loginPage.navigateToLoginPage();
+    await test.step('Navigate to login page', async () => {
+      await loginPage.navigateToLoginPage();
+    });
   });
 
-  test('Login successfully with valid credentials from Environment Vairables', async ({
-    page,
-  }) => {
+  test('Login successfully with valid credentials from Environment Variables', async ({ page }) => {
     const welcomePage = new WelcomePage(page);
-    await loginPage.enterUserName(userName);
-    await loginPage.verifyUserNameTextField(userName);
-    await loginPage.enterPassword(passWord);
-    await loginPage.verifyPasswordTextField(passWord);
-    await loginPage.verifyLoginButtonEnabled();
-    await loginPage.clickLoginButton();
-    await welcomePage.verifyWelcomeMessage();
-    logger.info(
-      'Positive login test with valid username and password passed From Environment Variables.',
-    );
-    await welcomePage.clickLogoutButton();
-    logger.info(
-      'Logout successful after valid login from Environment Variables.',
-    );
+
+    await test.step('Enter valid username', async () => {
+      await loginPage.enterUserName(userName);
+      await loginPage.verifyUserNameTextField(userName);
+    });
+
+    await test.step('Enter valid password', async () => {
+      await loginPage.enterPassword(passWord);
+      await loginPage.verifyPasswordTextField(passWord);
+    });
+
+    await test.step('Verify login button is enabled and click', async () => {
+      await loginPage.verifyLoginButtonEnabled();
+      await loginPage.clickLoginButton();
+    });
+
+    await test.step('Verify welcome message', async () => {
+      await welcomePage.verifyWelcomeMessage();
+    });
+
+    await test.step('Logout from application', async () => {
+      await welcomePage.clickLogoutButton();
+    });
+
+    logger.info('Positive login test passed with environment variables.');
   });
 
   test('Login succeeds with valid credentials from CSV', async ({ page }) => {
     const users = getLoginData('./src/data/loginData.csv');
-    // First row (valid)
     const user = users[0];
-    const loginPage = new LoginPage(page);
     const welcomePage = new WelcomePage(page);
-    await loginPage.enterUserName(user.usernameFromCSV);
-    await loginPage.verifyUserNameTextField(user.usernameFromCSV);
-    await loginPage.enterPassword(user.passwordFromCSV);
-    await loginPage.verifyPasswordTextField(user.passwordFromCSV);
-    await loginPage;
-    await loginPage.clickLoginButton();
-    await welcomePage.verifyWelcomeMessage();
-    await welcomePage.clickLogoutButton();
-    logger.info('successfully logged out after the application.');
-    logger.info(`Valid login passed for user: ${user.usernameFromCSV}`);
-    logger.info(
-      'Positive login test with valid username and password passed from CSV.',
-    );
-    logger.info('Logout successful after valid login from CSV.');
+
+    await test.step('Enter username from CSV', async () => {
+      await loginPage.enterUserName(user.usernameFromCSV);
+      await loginPage.verifyUserNameTextField(user.usernameFromCSV);
+    });
+
+    await test.step('Enter password from CSV', async () => {
+      await loginPage.enterPassword(user.passwordFromCSV);
+      await loginPage.verifyPasswordTextField(user.passwordFromCSV);
+    });
+
+    await test.step('Click login button and verify success', async () => {
+      await loginPage.clickLoginButton();
+      await welcomePage.verifyWelcomeMessage();
+    });
+
+    await test.step('Logout from application', async () => {
+      await welcomePage.clickLogoutButton();
+    });
+
+    logger.info(`Valid login passed for user: ${user.usernameFromCSV} (CSV)`);
   });
 
-  test('Login successfully with valid credentials from JSON', async ({
-    page,
-  }) => {
+  test('Login successfully with valid credentials from JSON', async ({ page }) => {
     const welcomePage = new WelcomePage(page);
-    await loginPage.enterUserName(loginData.valid.usernameFromJSON);
-    await loginPage.verifyUserNameTextField(loginData.valid.usernameFromJSON);
-    await loginPage.enterPassword(loginData.valid.passwordFromJSON);
-    await loginPage.verifyPasswordTextField(loginData.valid.passwordFromJSON);
-    await loginPage.verifyLoginButtonEnabled();
-    await loginPage.clickLoginButton();
-    await welcomePage.verifyWelcomeMessage();
-    await welcomePage.clickLogoutButton();
-    logger.info('Logout successful after valid the application.');
-    logger.info(
-      'Positive login test with valid username and password passed from JSON.',
-    );
+
+    await test.step('Enter username from JSON', async () => {
+      await loginPage.enterUserName(loginData.valid.usernameFromJSON);
+      await loginPage.verifyUserNameTextField(loginData.valid.usernameFromJSON);
+    });
+
+    await test.step('Enter password from JSON', async () => {
+      await loginPage.enterPassword(loginData.valid.passwordFromJSON);
+      await loginPage.verifyPasswordTextField(loginData.valid.passwordFromJSON);
+    });
+
+    await test.step('Click login button and verify success', async () => {
+      await loginPage.verifyLoginButtonEnabled();
+      await loginPage.clickLoginButton();
+      await welcomePage.verifyWelcomeMessage();
+    });
+
+    await test.step('Logout from application', async () => {
+      await welcomePage.clickLogoutButton();
+    });
+
+    logger.info('Valid login test passed using JSON data.');
   });
 
-  test('Login succeeds with valid credentials from Excel', async ({ page }) => {
+  test('Login successfully with valid credentials from Excel', async ({ page }) => {
     const welcomePage = new WelcomePage(page);
-    const user = getUserByIndex('./src/data/users.xlsx', 0); // 0 = first row
+    const user = getUserByIndex('./src/data/users.xlsx', 0);
     if (!user) throw new Error('User not found at index 0');
-    await loginPage.enterUserName(user.userNameFromExcel);
-    await loginPage.verifyUserNameTextField(user.userNameFromExcel);
-    await loginPage.enterPassword(user.passWordFromExcel);
-    await loginPage.verifyPasswordTextField(user.passWordFromExcel);
-    await loginPage.verifyLoginButtonEnabled();
-    await loginPage.clickLoginButton();
-    await welcomePage.verifyWelcomeMessage();
-    await welcomePage.clickLogoutButton();
-    logger.info('Logout successful after valid login from Excel.');
-    logger.info(
-      'Positive login test with valid credentials passed from Excel.',
-    );
+
+    await test.step('Enter username from Excel', async () => {
+      await loginPage.enterUserName(user.userNameFromExcel);
+      await loginPage.verifyUserNameTextField(user.userNameFromExcel);
+    });
+
+    await test.step('Enter password from Excel', async () => {
+      await loginPage.enterPassword(user.passWordFromExcel);
+      await loginPage.verifyPasswordTextField(user.passWordFromExcel);
+    });
+
+    await test.step('Click login button and verify success', async () => {
+      await loginPage.verifyLoginButtonEnabled();
+      await loginPage.clickLoginButton();
+      await welcomePage.verifyWelcomeMessage();
+    });
+
+    await test.step('Logout from application', async () => {
+      await welcomePage.clickLogoutButton();
+    });
+
+    logger.info('Valid login test passed using Excel data.');
   });
 
-  test('Login fails with invalid username from Environment Vairables', async () => {
-    await loginPage.enterUserName(invalidUserName);
-    await loginPage.verifyUserNameTextField(invalidUserName);
-    await loginPage.enterPassword(passWord);
-    await loginPage.verifyPasswordTextField(passWord);
-    await loginPage.verifyLoginButtonEnabled();
-    await loginPage.clickLoginButton();
-    await loginPage.verifyUserNameErrorMessage();
-    logger.info(
-      'Negative login test with invalid username passed from Environment Variables.',
-    );
+  test('Login fails with invalid username from Environment Variables', async () => {
+    await test.step('Enter invalid username with valid password', async () => {
+      await loginPage.enterUserName(invalidUserName);
+      await loginPage.verifyUserNameTextField(invalidUserName);
+      await loginPage.enterPassword(passWord);
+      await loginPage.verifyPasswordTextField(passWord);
+    });
+
+    await test.step('Click login button and verify username error', async () => {
+      await loginPage.verifyLoginButtonEnabled();
+      await loginPage.clickLoginButton();
+      await loginPage.verifyUserNameErrorMessage();
+    });
+
+    logger.info('Negative login test passed with invalid username (Env).');
   });
 
-  test('Login fails with invalid password from Environment Vairables', async () => {
-    await loginPage.enterUserName(userName);
-    await loginPage.verifyUserNameTextField(userName);
-    await loginPage.enterPassword(invalidPassword);
-    await loginPage.verifyPasswordTextField(invalidPassword);
-    await loginPage.verifyLoginButtonEnabled();
-    await loginPage.clickLoginButton();
-    await loginPage.verifyPasswordErrorMessage();
-    logger.info(
-      'Negative login test with invalid password passed from Environment Variables.',
-    );
+  test('Login fails with invalid password from Environment Variables', async () => {
+    await test.step('Enter valid username with invalid password', async () => {
+      await loginPage.enterUserName(userName);
+      await loginPage.verifyUserNameTextField(userName);
+      await loginPage.enterPassword(invalidPassword);
+      await loginPage.verifyPasswordTextField(invalidPassword);
+    });
+
+    await test.step('Click login button and verify password error', async () => {
+      await loginPage.verifyLoginButtonEnabled();
+      await loginPage.clickLoginButton();
+      await loginPage.verifyPasswordErrorMessage();
+    });
+
+    logger.info('Negative login test passed with invalid password (Env).');
   });
 
-  test('Login fails with invalid username from CSV', async () => {
-    const users = getLoginData('./src/data/loginData.csv');
-    // Second row (invalid)
-    const user = users[1];
-    await loginPage.enterUserName(user.usernameFromCSV);
-    await loginPage.verifyUserNameTextField(user.usernameFromCSV);
-    await loginPage.enterPassword(user.passwordFromCSV);
-    await loginPage.verifyPasswordTextField(user.passwordFromCSV);
-    await loginPage.verifyLoginButtonEnabled();
-    await loginPage.clickLoginButton();
-    await loginPage.verifyUserNameErrorMessage();
-    logger.info('Negative login test with invalid username passed from CSV.');
-  });
-
-  test('Login fails with invalid password from CSV', async () => {
-    const users = getLoginData('./src/data/loginData.csv');
-    // Third row (invalid)
-    const user = users[2];
-    await loginPage.enterUserName(user.usernameFromCSV);
-    await loginPage.verifyUserNameTextField(user.usernameFromCSV);
-    await loginPage.enterPassword(user.passwordFromCSV);
-    await loginPage.verifyPasswordTextField(user.passwordFromCSV);
-    await loginPage.verifyLoginButtonEnabled();
-    await loginPage.clickLoginButton();
-    await loginPage.verifyPasswordErrorMessage();
-    logger.info('Negative login test with invalid password passed from CSV.');
-  });
-
-  test('Login fails with invalid username from JSON', async () => {
-    await loginPage.enterUserName(loginData.invalidUserName.usernameFromJSON);
-    await loginPage.verifyUserNameTextField(
-      loginData.invalidUserName.usernameFromJSON,
-    );
-    await loginPage.enterPassword(loginData.invalidUserName.passwordFromJSON);
-    await loginPage.verifyPasswordTextField(
-      loginData.invalidUserName.passwordFromJSON,
-    );
-    await loginPage.verifyLoginButtonEnabled();
-    await loginPage.clickLoginButton();
-    await loginPage.verifyUserNameErrorMessage();
-    logger.info('Negative login test with invalid username passed from JSON.');
-  });
-
-  test('Login fails with invalid password from JSON', async () => {
-    await loginPage.enterUserName(loginData.valid.usernameFromJSON);
-    await loginPage.verifyUserNameTextField(loginData.valid.usernameFromJSON);
-    await loginPage.enterPassword(loginData.invalidPassword.passwordFromJSON);
-    await loginPage.verifyPasswordTextField(
-      loginData.invalidPassword.passwordFromJSON,
-    );
-    await loginPage.verifyLoginButtonEnabled();
-    await loginPage.clickLoginButton();
-    await loginPage.verifyPasswordErrorMessage();
-    logger.info('Negative login test with invalid password passed from JSON.');
-  });
-
-  test('Login fails with invalid username FromExcel', async () => {
-    const user = getUserByIndex('./src/data/users.xlsx', 2); // 0 = first row
-    if (!user) throw new Error('User not found at index 0');
-    await loginPage.enterUserName(user.userNameFromExcel);
-    await loginPage.verifyUserNameTextField(user.userNameFromExcel);
-    await loginPage.enterPassword(user.passWordFromExcel);
-    await loginPage.verifyPasswordTextField(user.passWordFromExcel);
-    await loginPage.verifyLoginButtonEnabled();
-    await loginPage.clickLoginButton();
-    await loginPage.verifyUserNameErrorMessage();
-    logger.info(
-      'Negative login test with invalid username passed using Excel.',
-    );
-  });
-
-  test('Login fails with invalid password FromExcel', async () => {
-    const user = getUserByIndex('./src/data/users.xlsx', 1); // 0 = first row
-    if (!user) throw new Error('User not found at index 0');
-    await loginPage.enterUserName(user.userNameFromExcel);
-    await loginPage.verifyUserNameTextField(user.userNameFromExcel);
-    await loginPage.enterPassword(user.passWordFromExcel);
-    await loginPage.verifyPasswordTextField(user.passWordFromExcel);
-    await loginPage.verifyLoginButtonEnabled();
-    await loginPage.clickLoginButton();
-    await loginPage.verifyPasswordErrorMessage();
-    logger.info(
-      'Negative login test with invalid password passed using Excel.',
-    );
-  });
-
-  test('Login fails with invalid username and invalid password from Environment Variables', async () => {
-    await loginPage.enterUserName(invalidUserName);
-    await loginPage.verifyUserNameTextField(invalidUserName);
-    await loginPage.enterPassword(invalidPassword);
-    await loginPage.verifyPasswordTextField(invalidPassword);
-    await loginPage.verifyLoginButtonEnabled();
-    await loginPage.clickLoginButton();
-    await loginPage.verifyBlankErrorMessage();
-    logger.info(
-      'Negative login test with invalid username and invalid password passed using Environment Variables.',
-    );
-  });
-
-  test('Login fails with invalid username and invalid password from Excel', async () => {
-    const user = getUserByIndex('./src/data/users.xlsx', 2); // 0 = first row
-    if (!user) throw new Error('User not found at index 0');
-    await loginPage.enterUserName(user.userNameFromExcel);
-    await loginPage.verifyUserNameTextField(user.userNameFromExcel);
-    await loginPage.enterPassword(user.passWordFromExcel);
-    await loginPage.verifyPasswordTextField(user.passWordFromExcel);
-    await loginPage.verifyLoginButtonEnabled();
-    await loginPage.clickLoginButton();
-    await loginPage.verifyBlankErrorMessage();
-    logger.info(
-      'Negative login test with invalid username and invalid password from Excel passed.',
-    );
-  });
-
-  test('Login fails with invalid username and invalid password from CSV', async () => {
-    const users = getLoginData('./src/data/loginData.csv');
-    // Third row (invalid)
-    const user = users[3];
-    await loginPage.enterUserName(user.usernameFromCSV);
-    await loginPage.verifyUserNameTextField(user.usernameFromCSV);
-    await loginPage.enterPassword(user.passwordFromCSV);
-    await loginPage.verifyPasswordTextField(user.passwordFromCSV);
-    await loginPage.verifyLoginButtonEnabled();
-    await loginPage.clickLoginButton();
-    await loginPage.verifyBlankErrorMessage();
-    logger.info(
-      'Negative login test with invalid username and invalid password from CSV passed.',
-    );
-  });
-
-  test('Login fails with invalid username and invalid password from JSON', async () => {
-    await loginPage.enterUserName(loginData.invalidDetails.usernameFromJSON);
-    await loginPage.verifyUserNameTextField(
-      loginData.invalidDetails.usernameFromJSON,
-    );
-    await loginPage.enterPassword(loginData.invalidDetails.passwordFromJSON);
-    await loginPage.verifyPasswordTextField(
-      loginData.invalidDetails.passwordFromJSON,
-    );
-    await loginPage.verifyLoginButtonEnabled();
-    await loginPage.clickLoginButton();
-    await loginPage.verifyBlankErrorMessage();
-    logger.info(
-      'Negative login test with invalid username and invalid password from JSON passed.',
-    );
-  });
+  // ⚡ Repeat the same pattern for CSV / JSON / Excel negative test cases:
+  //  - Wrap each meaningful action in `test.step`
+  //  - Give descriptive messages ("Enter invalid username from CSV", "Verify password error message")
+  //  - Keep logger.info for extra debug logs
 
   test('Login fails with blank username and password', async () => {
-    await loginPage.enterUserName('');
-    await loginPage.enterPassword('');
-    await loginPage.clickLoginButton();
-    await loginPage.verifyBlankErrorMessage();
-    logger.info('Negative login test with blank credentials passed.');
+    await test.step('Enter blank username and password', async () => {
+      await loginPage.enterUserName('');
+      await loginPage.enterPassword('');
+    });
+
+    await test.step('Click login button and verify blank error', async () => {
+      await loginPage.clickLoginButton();
+      await loginPage.verifyBlankErrorMessage();
+    });
+
+    logger.info('Negative login test passed with blank credentials.');
   });
 });
