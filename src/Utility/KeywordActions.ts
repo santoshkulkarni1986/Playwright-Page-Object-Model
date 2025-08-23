@@ -3,7 +3,7 @@
  * Keyword-driven action handler
  */
 import { Page } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
+import { LoginPage } from '../pages/loginPage';
 import { WelcomePage } from '../pages/WelcomePage';
 import logger from './logger';
 
