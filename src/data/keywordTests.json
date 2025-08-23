@@ -1,6 +1,6 @@
 [
     {
-    "testName": "Valid Login with Env Vars",
+    "testName": "Valid Login with Env Varibale using KDF",
     "steps": [
     { "keyword": "navigate to login page" },
     { "keyword": "enter username", "value": "$USERNAME" },
@@ -14,7 +14,7 @@
     ]
     },
     {
-    "testName": "Invalid Login - Wrong Password",
+    "testName": "Invalid Login - Wrong Password using KDF",
     "steps": [
     { "keyword": "navigate to login page" },
     { "keyword": "enter username", "value": "$USERNAME" },
