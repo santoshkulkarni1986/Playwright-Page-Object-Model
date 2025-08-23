@@ -1,5 +1,6 @@
 /***Author
  * Santosh Kulkarni
+ * Utility for logging with Winston
  */
 import { createLogger, format, transports } from 'winston';
 

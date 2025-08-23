@@ -1,9 +1,13 @@
-// src/utility/pdf-reporter.ts
+/**Author
+ * Santos Kulkarni
+ * Custom Playwright PDF Reporter that converts HTML report to PDF
+ */
 import { FullResult, Reporter } from '@playwright/test/reporter';
 import { chromium } from 'playwright';
 import fs from 'fs';
 import path from 'path';
 import http from 'http';
+import logger from './logger';
 
 interface PdfReporterOptions {
   outputFile?: string;
@@ -17,11 +21,15 @@ export default class PdfReporterPlaywright implements Reporter {
   }
 
   async onEnd(result: FullResult) {
-    console.log(' Generating Playwright PDF report...');
-
+    if (result.status === 'interrupted') {
+      logger.warn(
+        'Test run was interrupted. PDF report will not be generated.',
+      );
+      return;
+    }
     const reportPath = path.resolve('playwright-report/index.html');
     if (!fs.existsSync(reportPath)) {
-      console.error(
+      logger.info(
         'HTML report not found. Run tests with HTML reporter enabled.',
       );
       return;
@@ -70,6 +78,6 @@ export default class PdfReporterPlaywright implements Reporter {
     await browser.close();
     server.close();
 
-    console.log(`PDF report generated at ${this.outputFile}`);
+    logger.info(`PDF report generated at ${this.outputFile}`);
   }
 }

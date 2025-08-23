@@ -1,3 +1,7 @@
+/**Author
+ * Santosh Kulkarni
+ * Utility to read user credentials from Excel file
+ */
 import * as xlsx from 'xlsx';
 import path from 'path';
 

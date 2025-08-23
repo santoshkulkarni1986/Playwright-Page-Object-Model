@@ -1,3 +1,7 @@
+/**Author
+ * Santosh Kulkarni
+ *  * Utility to read and write test data and results to/from Excel file
+ *  */
 import * as XLSX from 'xlsx';
 import * as fs from 'fs';
 

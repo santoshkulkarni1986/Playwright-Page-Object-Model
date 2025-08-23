@@ -1,5 +1,10 @@
+/***Author
+ * Santosh Kulkarni
+ * Utility to setup report directories
+ */
 import fs from 'fs';
 import path from 'path';
+import logger from './logger';
 
 const folders = [
   'FinalReports/reports/pdf',
@@ -11,6 +16,6 @@ folders.forEach((folder) => {
   const folderPath = path.resolve(folder);
   if (!fs.existsSync(folderPath)) {
     fs.mkdirSync(folderPath, { recursive: true });
-    console.log(`Created folder: ${folderPath}`);
+    logger.info(`Created folder: ${folderPath}`);
   }
 });

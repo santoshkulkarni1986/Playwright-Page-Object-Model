@@ -20,6 +20,7 @@ import {
   TableCell,
   HeadingLevel,
 } from 'docx';
+import logger from './logger';
 
 interface WordReporterOptions {
   outputDir?: string;
@@ -140,7 +141,7 @@ class WordReporter implements Reporter {
     const filePath = path.join(this.outputDir, `Playwright_Test_Report.docx`);
     fs.writeFileSync(filePath, buffer);
 
-    console.log(`Word report generated at: ${filePath}`);
+    logger.info(`Word report generated at: ${filePath}`);
   }
 }
 

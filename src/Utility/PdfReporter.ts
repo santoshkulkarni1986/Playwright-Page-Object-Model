@@ -11,6 +11,7 @@ import {
 import fs from 'fs';
 import path from 'path';
 import PDFDocument from 'pdfkit';
+import logger from './logger';
 
 interface PdfReporterOptions {
   outputFile?: string;
@@ -52,6 +53,11 @@ class PdfReporter implements Reporter {
   // Called after all tests
   async onEnd(_result: FullResult) {
     const outputDir = path.dirname(this.outputFile);
+    logger.info(' Generating Playwright PDF report...');
+    logger.info(` Result is ${JSON.stringify(_result)}`);
+    logger.info(` Output File: ${this.outputFile}`);
+    logger.info(` Output Directory: ${outputDir}`);
+    logger.info(` Test Results Count: ${this.testResults.length}`);
     if (!fs.existsSync(outputDir)) {
       fs.mkdirSync(outputDir, { recursive: true });
     }
@@ -107,7 +113,7 @@ class PdfReporter implements Reporter {
     });
 
     doc.end();
-    console.log(`✅ PDF Report generated at: ${this.outputFile}`);
+    logger.info(`PDF Report generated at: ${this.outputFile}`);
   }
 }
 

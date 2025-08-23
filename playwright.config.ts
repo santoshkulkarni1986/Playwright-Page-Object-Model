@@ -2,7 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 import fs from 'fs';
 import path from 'path';
 
-// ✅ Ensure report folders exist before tests run
+// Ensure report folders exist before tests run
 const reportFolders = [
   'FinalReports/reports/pdf',
   'FinalReports/reports/word',
@@ -22,14 +22,13 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 2,
-  workers: process.env.CI ? 3 : 3,
+  workers: process.env.CI ? 3 : 4,
 
   reporter: [
     ['list'],
     ['html', { open: 'never', outputFolder: 'playwright-report', title: 'Santosh Kulkarni POC' }],
     ['junit', { outputFile: 'test-results/results.xml' }],
     ['@estruyf/github-actions-reporter'],
-
     // Compiled JS reporters (dist folder)
     ['./dist/Utility/WordReporter.js', { outputDir: 'FinalReports/reports/word' }],
     ['./dist/Utility/PdfReporter.js', { outputFile: 'FinalReports/reports/pdf/playwright-Custom-report.pdf' }],

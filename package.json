@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "pretest": "ts-node ./src/Utility/setupReports.ts && npx tsc",
-  "test": "cross-env ENV=test npx playwright test",
-  "posttest": "echo 'Reports generated successfully!'"
+    "pretest": "eslint ./src --ext .ts,.tsx --fix && ts-node ./src/Utility/setupReports.ts && tsc --noEmit",
+    "test": "cross-env ENV=test npx playwright test",
+    "posttest": "echo 'Reports generated successfully!'"
   },
   "keywords": [],
   "author": "Santosh Kulkarni QA Lead",
