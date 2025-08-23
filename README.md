@@ -87,10 +87,14 @@ npx playwright test --project="Google Chrome"
 4. **Logging**: Use the custom logger for all actions and verifications
 5. **Screenshots**: Capture screenshots on test failures
 
-## Integration Points
+## Integration Reports
 
 - Playwright for browser automation
 - Excel/CSV/JSON for data storage
 - Environment variables for configuration
 - Custom logging system
 - Multiple reporting formats (HTML, JUnit XML)
+
+- ## Integration Points
+- Implementation customized reports with Word, PDF, Excel and MonoCart
+
