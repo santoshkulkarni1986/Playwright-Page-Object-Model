@@ -17,7 +17,7 @@
       { "keyword": "enter username", "value": "$USERNAME" },
       { "keyword": "enter password", "value": "$INVALID_PASSWORD" },
       { "keyword": "click login" },
-      { "keyword": "verify username error" }
+      { "keyword": "verify password error" }
     ]
   }
 ]

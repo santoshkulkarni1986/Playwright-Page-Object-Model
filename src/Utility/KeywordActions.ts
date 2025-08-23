@@ -1,9 +1,9 @@
-/** 
+/**
  * Author: Santosh Kulkarni
  * Keyword-driven action handler
  */
 import { Page } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
+import { LoginPage } from '../pages/loginPage';
 import { WelcomePage } from '../pages/WelcomePage';
 import logger from './logger';
 
@@ -72,6 +72,8 @@ export class KeywordActions {
       default:
         throw new Error(`Unknown keyword: ${keyword}`);
     }
-    logger.info(`Performed keyword: ${keyword}${value ? ` with value: ${value}` : ''}`);
+    logger.info(
+      `Performed keyword: ${keyword}${value ? ` with value: ${value}` : ''}`,
+    );
   }
 }
