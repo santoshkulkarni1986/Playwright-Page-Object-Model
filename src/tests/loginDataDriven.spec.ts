@@ -1,6 +1,6 @@
-/**Author : Santosh Kulkarni 
+/**Author : Santosh Kulkarni
  *  * Data-driven tests using Playwright and Excel
- * */ 
+ * */
 import { test as base, expect } from '@playwright/test';
 import {
   readExecutableTests,

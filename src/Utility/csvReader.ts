@@ -1,7 +1,7 @@
 /**Author
  * Santosh Kulkarni
  * Utility to read user credentials from CSV file
- *  * */ 
+ *  * */
 import fs from 'fs';
 import path from 'path';
 import { parse } from 'csv-parse/sync';

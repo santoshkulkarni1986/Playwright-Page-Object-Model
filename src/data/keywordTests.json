@@ -1,0 +1,27 @@
+[
+    {
+    "testName": "Valid Login with Env Vars",
+    "steps": [
+    { "keyword": "navigate to login page" },
+    { "keyword": "enter username", "value": "$USERNAME" },
+    { "keyword": "verify username", "value": "$USERNAME" },
+    { "keyword": "enter password", "value": "$PASSWORD" },
+    { "keyword": "verify password", "value": "$PASSWORD" },
+    { "keyword": "verify login button enabled" },
+    { "keyword": "click login" },
+    { "keyword": "verify welcome" },
+    { "keyword": "logout" }
+    ]
+    },
+    {
+    "testName": "Invalid Login - Wrong Password",
+    "steps": [
+    { "keyword": "navigate to login page" },
+    { "keyword": "enter username", "value": "$USERNAME" },
+    { "keyword": "enter password", "value": "$INVALID_PASSWORD" },
+    { "keyword": "verify login button enabled" },
+    { "keyword": "click login" },
+    { "keyword": "verify password error" }
+    ]
+    }
+]
