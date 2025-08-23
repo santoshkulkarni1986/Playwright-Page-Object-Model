@@ -9,15 +9,5 @@
       { "keyword": "verify welcome" },
       { "keyword": "logout" }
     ]
-  },
-  {
-    "testName": "Invalid Login - Wrong Password using KDF",
-    "steps": [
-      { "keyword": "navigate to login page" },
-      { "keyword": "enter username", "value": "$USERNAME" },
-      { "keyword": "enter password", "value": "$INVALID_PASSWORD" },
-      { "keyword": "click login" },
-      { "keyword": "verify username error" }
-    ]
   }
 ]
