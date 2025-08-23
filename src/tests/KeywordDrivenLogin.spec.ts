@@ -1,39 +1,69 @@
-// src/tests/KeywordDrivenLogin.spec.ts
+/*** Author: Santosh Kulkarni ***/
 import { test } from '@playwright/test';
 import { KeywordActions } from '../Utility/KeywordActions';
 import keywordTests from '../data/keywordTests.json';
-import { getLoginData } from '../../src/Utility/csvReader';
+import { getLoginData } from '../Utility/csvReader';
 
-const loginUsers = getLoginData('src/data/loginData.csv'); // Read users from CSV
+// -----------------------------
+// Types for clarity
+// -----------------------------
+type LoginUser = {
+  usernameFromCSV: string;
+  passwordFromCSV: string;
+};
 
+type KeywordStep = {
+  keyword: string;
+  value?: string;
+};
+
+type KeywordScenario = {
+  testName: string;
+  steps: KeywordStep[];
+};
+
+// -----------------------------
+// Load users from CSV
+// -----------------------------
+const loginUsers: LoginUser[] = getLoginData('src/data/loginData.csv');
+
+// -----------------------------
+// Keyword-Driven Login Tests
+// -----------------------------
 test.describe('Keyword-Driven Login Tests', () => {
   loginUsers.forEach((user, userIndex) => {
-    keywordTests.forEach((scenario, scenarioIndex) => {
+    (keywordTests as KeywordScenario[]).forEach((scenario, scenarioIndex) => {
       // ✅ Ensure unique test name by appending scenario & user index
-      test(
-        `${scenario.testName} - User: ${user.usernameFromCSV} [S${scenarioIndex + 1}-U${userIndex + 1}]`,
-        async ({ page }) => {
-          const actions = new KeywordActions(page);
+      const testName = `${scenario.testName} - User: ${user.usernameFromCSV} [S${scenarioIndex + 1}-U${userIndex + 1}]`;
 
-          for (const step of scenario.steps) {
-            let value = step.value;
+      test(testName, async ({ page }) => {
+        const actions = new KeywordActions(page);
 
-            // ✅ Replace placeholders with CSV values
-            if (value === '$USERNAME') {
+        for (const step of scenario.steps) {
+          let value = step.value;
+
+          // ✅ Replace placeholders dynamically
+          switch (value) {
+            case '$USERNAME':
               value = user.usernameFromCSV;
-            } else if (value === '$PASSWORD') {
+              break;
+            case '$PASSWORD':
               value = user.passwordFromCSV;
-            }
-
-            await test.step(
-              `${step.keyword}${value ? ` (${value})` : ''}`,
-              async () => {
-                await actions.perform(step.keyword, value);
-              }
-            );
+              break;
           }
+
+          await test.step(`${step.keyword}${value ? ` (${value})` : ''}`, async () => {
+            try {
+              await actions.perform(step.keyword, value);
+            } catch (err) {
+              console.error(
+                `Keyword step failed: ${step.keyword}, User: ${user.usernameFromCSV}`,
+              );
+              throw err;
+            }
+          });
         }
-      );
+      });
     });
   });
 });

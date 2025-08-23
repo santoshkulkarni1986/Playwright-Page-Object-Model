@@ -1,27 +1,23 @@
 [
-    {
-    "testName": "Valid Login with Env Varibale using KDF",
+  {
+    "testName": "Valid Login with CSV/Env Variable using KDF",
     "steps": [
-    { "keyword": "navigate to login page" },
-    { "keyword": "enter username", "value": "$USERNAME" },
-    { "keyword": "verify username", "value": "$USERNAME" },
-    { "keyword": "enter password", "value": "$PASSWORD" },
-    { "keyword": "verify password", "value": "$PASSWORD" },
-    { "keyword": "verify login button enabled" },
-    { "keyword": "click login" },
-    { "keyword": "verify welcome" },
-    { "keyword": "logout" }
+      { "keyword": "navigate to login page" },
+      { "keyword": "enter username", "value": "$USERNAME" },
+      { "keyword": "enter password", "value": "$PASSWORD" },
+      { "keyword": "click login" },
+      { "keyword": "verify welcome" },
+      { "keyword": "logout" }
     ]
-    },
-    {
+  },
+  {
     "testName": "Invalid Login - Wrong Password using KDF",
     "steps": [
-    { "keyword": "navigate to login page" },
-    { "keyword": "enter username", "value": "$USERNAME" },
-    { "keyword": "enter password", "value": "$INVALID_PASSWORD" },
-    { "keyword": "verify login button enabled" },
-    { "keyword": "click login" },
-    { "keyword": "verify password error" }
+      { "keyword": "navigate to login page" },
+      { "keyword": "enter username", "value": "$USERNAME" },
+      { "keyword": "enter password", "value": "$INVALID_PASSWORD" },
+      { "keyword": "click login" },
+      { "keyword": "verify username error" }
     ]
-    }
+  }
 ]

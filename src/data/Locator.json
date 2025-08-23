@@ -1,0 +1,9 @@
+
+{
+  "USERNAME_FIELD": "#username",
+  "PASSWORD_FIELD": "#password",
+  "LOGIN_BUTTON": "#loginBtn",
+  "DASHBOARD_TITLE": "h1.dashboard",
+  "LOGUTBUTTON": "#logoutBtn",
+  "ERROR_MESSAGE": ".error"
+}
