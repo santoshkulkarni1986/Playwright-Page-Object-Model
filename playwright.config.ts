@@ -9,7 +9,7 @@ const reportFolders = [
   'FinalReports/monocart-report',
 ];
 
-reportFolders.forEach(folder => {
+reportFolders.forEach((folder) => {
   const folderPath = path.resolve(folder);
   if (!fs.existsSync(folderPath)) {
     fs.mkdirSync(folderPath, { recursive: true });
@@ -26,50 +26,75 @@ export default defineConfig({
 
   reporter: [
     ['list'],
-    ['html', { open: 'never', outputFolder: 'playwright-report', title: 'Santosh Kulkarni POC' }],
+    [
+      'html',
+      {
+        open: 'never',
+        outputFolder: 'playwright-report',
+        title: 'Santosh Kulkarni POC',
+      },
+    ],
     ['junit', { outputFile: 'test-results/results.xml' }],
     ['@estruyf/github-actions-reporter'],
     // Compiled JS reporters (dist folder)
-    ['./dist/Utility/WordReporter.js', { outputDir: 'FinalReports/reports/word' }],
-    ['./dist/Utility/PdfReporter.js', { outputFile: 'FinalReports/reports/pdf/playwright-Custom-report.pdf' }],
-    ['./dist/Utility/pdf-reporter.js', { outputFile: 'FinalReports/reports/pdf/playwright-HTML-Convert-report.pdf' }],
+    [
+      './dist/Utility/WordReporter.js',
+      { outputDir: 'FinalReports/reports/word' },
+    ],
+    [
+      './dist/Utility/PdfReporter.js',
+      { outputFile: 'FinalReports/reports/pdf/playwright-Custom-report.pdf' },
+    ],
+    [
+      './dist/Utility/pdf-reporter.js',
+      {
+        outputFile:
+          'FinalReports/reports/pdf/playwright-HTML-Convert-report.pdf',
+      },
+    ],
 
-    ['monocart-reporter', {  
-      name: "Playwright Custom Report",
-      outputFile: './FinalReports/monocart-report/index.html'
-    }],
+    [
+      'monocart-reporter',
+      {
+        name: 'Playwright Custom Report',
+        outputFile: './FinalReports/monocart-report/index.html',
+      },
+    ],
 
-    ['json', { outputFile: 'test-results/results.json' }]
+    ['json', { outputFile: 'test-results/results.json' }],
   ],
 
   use: {
     baseURL: process.env.URL || 'https://default-url.com',
     trace: 'on',
     screenshot: 'on',
-    video: 'on'
+    video: 'on',
   },
 
   projects: [
-
-      {
+    {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] }
+      use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
     },
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] }
+      use: { ...devices['Desktop Firefox'] },
     },
     {
       name: 'Google Chrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome' }
+      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     },
     {
       name: 'Microsoft Edge',
-      use: { ...devices['Desktop Edge'], channel: 'msedge' }
+      use: { ...devices['Desktop Edge'], channel: 'msedge' },
     },
     {
       name: 'iPhone 13',
-      use: { ...devices['iPhone 13'] }
-    }
-  ]
+      use: { ...devices['iPhone 13'] },
+    },
+  ],
 });
