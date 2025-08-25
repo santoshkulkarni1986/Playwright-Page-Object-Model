@@ -180,11 +180,6 @@ test.describe('Login Test Scenarios Using POM', () => {
     logger.info('Negative login test passed with invalid password (Env).');
   });
 
-  // ⚡ Repeat the same pattern for CSV / JSON / Excel negative test cases:
-  //  - Wrap each meaningful action in `test.step`
-  //  - Give descriptive messages ("Enter invalid username from CSV", "Verify password error message")
-  //  - Keep logger.info for extra debug logs
-
   test('Login fails with blank username and password', async () => {
     await test.step('Enter blank username and password', async () => {
       await loginPage.enterUserName('');
