@@ -4,12 +4,12 @@
   "main": "index.js",
   "scripts": {
     "pretest": "eslint ./src --ext .ts,.tsx --fix && ts-node ./src/Utility/setupReports.ts && tsc --noEmit",
-    "test": "c8 --reporter=html && cross-env ENV=test npx playwright test",
+    "test": "cross-env ENV=test npx playwright test",
     "format": "prettier --write './src/**/*.{ts,tsx,json,css,md}'",
     "posttest": "echo 'Reports generated successfully!'"
   },
-
-  "keywords": [],
+  
+  "keywords": ["playwright", "typescript", "poc", "automation", "page-object-model"],
   "author": "Santosh Kulkarni QA Lead",
   "license": "ISC",
   "description": "Playwright Framework with Page Object Model and Word Reporter, PDF Reporter, and HTML Reporter",
